@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Evertec_library_02</string>
+    <string name="url_Request1">https://private-f2106d-evertec1.apiary-mock.com/questions</string>
+</resources>
