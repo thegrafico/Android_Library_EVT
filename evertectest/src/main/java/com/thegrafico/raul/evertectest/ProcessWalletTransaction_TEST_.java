@@ -15,9 +15,9 @@ import com.google.gson.GsonBuilder;
 public class ProcessWalletTransaction_TEST_{
 
     private Gson gson;
-    private ProcessWalletTransaction processWalletTransaction;
+    private ProcessWalletTransactionData processWalletTransaction;
 
-    public ProcessWalletTransaction_TEST_(ProcessWalletTransaction processWalletTransaction){
+    public ProcessWalletTransaction_TEST_(ProcessWalletTransactionData processWalletTransaction){
 
         this.processWalletTransaction = processWalletTransaction;
 
