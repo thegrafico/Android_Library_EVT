@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
 
         volleyBtn.setOnClickListener {
 
-            val processPW = ProcessWalletTransactionData()
+            val processPW = ProcessWalletTransactionData(this)
             processPW.username = "Pedrito"
             processPW.password = "1234"
             processPW.accountNumber = "147258"
@@ -30,7 +30,10 @@ class MainActivity : AppCompatActivity() {
             processPW.trxDescription = "Sale of materials"
             processPW.filler1 = "data"
             processPW.REFUN()
-            processPW.exe(this, textView)
+
+            processPW.exe()
+
+            // exe.(this, responseListener {})
 
         }
     }
