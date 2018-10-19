@@ -2,6 +2,8 @@ package com.thegrafico.raul.evertectest
 
 import android.os.AsyncTask
 import android.util.Log
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import java.io.IOException
 import java.io.InputStream
 import java.net.HttpURLConnection
@@ -13,12 +15,15 @@ private val URL:String = "https://private-f2106d-evertec1.apiary-mock.com/questi
 
 class WalletTransationResp(var completeListener: CompleteListener?): AsyncTask<String, Void, String>() {
 
+    //to Transfor JSON
+    val gson: Gson = GsonBuilder().setPrettyPrinting().create()
 
     //HERE WE GET THE INFO AND SEND TO A LISTENER
     override fun doInBackground(vararg params: String): String? {
 
         try {
-            return  donwloadData(URL)
+            var respJSON = gson.toJson(donwloadData(URL))
+            return  respJSON
         }catch (e:IOException){
             return null
         }
