@@ -23,9 +23,11 @@ class WalletTransationResp(var completeListener: CompleteListener?): AsyncTask<S
 
         try {
             var respJSON = gson.toJson(donwloadData(URL))
+            val response = gson.fromJson(donwloadData(URL), ResponseWalletTransation::class.java)
+            Log.d("\t\t\tResponse", response.authNumber)
             return  respJSON
         }catch (e:IOException){
-            return null
+            Log.d("\t\t\tResponse", e.message)
         }
 
         return null
