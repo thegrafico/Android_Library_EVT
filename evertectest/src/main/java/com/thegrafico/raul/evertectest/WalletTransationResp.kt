@@ -1,28 +1,26 @@
 package com.thegrafico.raul.evertectest
 
 import android.os.AsyncTask
-import android.util.Log
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import com.google.gson.JsonObject
 import org.json.JSONObject
 import java.io.IOException
 import java.io.InputStream
 import java.net.HttpURLConnection
 import java.net.URL
+import java.io.OutputStreamWriter
+
 
 @Suppress("UNREACHABLE_CODE")
 
-private val URL:String = "https://private-f2106d-evertec1.apiary-mock.com/questions"
+private val URL:String = "http://httpbin.org/post"
 
-class WalletTransationResp(var completeListener: CompleteListener?): AsyncTask<String, Void, String>() {
+class WalletTransationResp(var completeListener: CompleteListener?,var dataToPost: ProcessWalletTransactionData): AsyncTask<String, Void, String>() {
 
     //to Transfor JSON
     val gson: Gson = GsonBuilder().setPrettyPrinting().create() // for pretty print feature
 
-
-
-    //HERE WE GET THE INFO AND SEND TO A LISTENER
+    //Process running in Background
     override fun doInBackground(vararg params: String): String? {
 
         try {
@@ -35,12 +33,13 @@ class WalletTransationResp(var completeListener: CompleteListener?): AsyncTask<S
         return null
     }
 
+    //DATA COMMUNICATION
     override fun onPostExecute(result: String) {
 
         try {
 
 
-            var resp = gson.fromJson(result, ResponseWalletTransation::class.java)
+            val resp = gson.fromJson(result, ResponseWalletTransation::class.java)
 
             completeListener?.downloadCompleted(result, resp)
 
@@ -49,6 +48,7 @@ class WalletTransationResp(var completeListener: CompleteListener?): AsyncTask<S
         }
     }
 
+    //POST OR GET REQUEST
     @Throws (IOException::class)
     private fun donwloadData(url:String): String{
 
@@ -58,13 +58,22 @@ class WalletTransationResp(var completeListener: CompleteListener?): AsyncTask<S
 
             val url = URL(url)
             val conn = url.openConnection() as HttpURLConnection
+            conn.setRequestProperty("Content-Type", "application/json; charset=UTF-8")
+            conn.setRequestProperty("Accept", "application/json")
+            conn.doOutput = true
+
             conn.requestMethod = "POST"
             conn.connect()
 
+            //send data
+            val wr = OutputStreamWriter(conn.getOutputStream())
+            wr.write(jsonDataToPost().toString())
+
+            wr.flush()
+            wr.close()
+
+            //retrieve data
             inputStream = conn.inputStream
-
-
-
             return inputStream.bufferedReader().use {
                 it.readText()
             }
@@ -75,5 +84,20 @@ class WalletTransationResp(var completeListener: CompleteListener?): AsyncTask<S
         }
     }
 
+    fun jsonDataToPost():JSONObject{
+        var data = JSONObject()
+
+        data.put("username", dataToPost.username)
+        data.put("password", dataToPost.password)
+        data.put("accountNumber", dataToPost.accountNumber)
+        data.put("trxID", dataToPost.trxID)
+        data.put("trxAmout", dataToPost.trxAmout)
+        data.put("refNumber", dataToPost.refNumber)
+        data.put("trxDescription", dataToPost.trxDescription)
+        data.put("filler1", dataToPost.filler1)
+        data.put("trxOper",dataToPost.trxOper )
+
+         return data
+    }
 
 }
