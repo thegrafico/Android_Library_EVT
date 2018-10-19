@@ -8,7 +8,11 @@ import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
+import org.json.JSONObject
 import khttp.delete as httpDelete
+import android.os.StrictMode
+
+
 
 
 //Constructor
@@ -56,37 +60,46 @@ class ProcessWalletTransactionData{
     fun REFUN():String{return txrOperSALE}
 
     fun exe(){
-        completionHandler()
+//        completionHandler()
 
    }
 
-    //-----START TESTING PURPOSE-------
-
-    //-----END TESTING PURPOSE-------
-
-    //Solicitud de la libreria Volley
-    private fun solicitudHttpVolley() {
-        val queue = Volley.newRequestQueue(context)
-        val solicitud = StringRequest(Request.Method.POST, URL, Response.Listener<String>{
-            response ->
-            try{
-              var jsonFile = gson!!.toJson(response)
-//              var wtResp = new WalltRansactionResp(gson);
-//                textView.text = response
-                Log.d("\t\tRESPONSE: " ,"ESTOY EN VOLLEY")
-
-            }catch (e: Exception){
-
-            }
-        }, Response.ErrorListener {  })
-        queue.add(solicitud)
-    }
-
-    fun completionHandler(){
-        solicitudHttpVolley()
-        Log.d("\t\tESTOY EN COMPLETE", "HANDLER!")
-
-    }
+//    //-----START TESTING PURPOSE-------
+//
+//    fun makeHttpRequest(){
+//        val policy = StrictMode.ThreadPolicy.Builder().permitAll().build()
+//
+//        StrictMode.setThreadPolicy(policy)
+//
+//        val response = khttp.get("http://httpbin.org/get")
+//        val obj : JSONObject = response.jsonObject
+//        Log.d("\t\t\tRESPONSE FOR KHTTP: ", obj.toString())
+//    }
+//    //-----END TESTING PURPOSE-------
+//
+//    //Solicitud de la libreria Volley
+//    private fun solicitudHttpVolley() {
+//        val queue = Volley.newRequestQueue(context)
+//        val solicitud = StringRequest(Request.Method.POST, URL, Response.Listener<String>{
+//            response ->
+//            try{
+//              var jsonFile = gson!!.toJson(response)
+////              var wtResp = new WalltRansactionResp(gson);
+////                textView.text = response
+//                Log.d("\t\tRESPONSE: " ,"ESTOY EN VOLLEY")
+//
+//            }catch (e: Exception){
+//
+//            }
+//        }, Response.ErrorListener {  })
+//        queue.add(solicitud)
+//    }
+//
+//    fun completionHandler(){
+//        solicitudHttpVolley()
+//        Log.d("\t\tESTOY EN COMPLETE", "HANDLER!")
+//
+//    }
 }
 
 

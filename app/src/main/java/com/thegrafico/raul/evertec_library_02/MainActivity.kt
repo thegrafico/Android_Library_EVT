@@ -31,7 +31,11 @@ class MainActivity : AppCompatActivity() {
             processPW.filler1 = "data"
             processPW.REFUN()
 
-            processPW.exe()
+//            processPW.exe()
+
+            //TESTING
+            processPW.makeHttpRequest()
+            //END TESTING
 
             // exe.(this, responseListener {})
 
