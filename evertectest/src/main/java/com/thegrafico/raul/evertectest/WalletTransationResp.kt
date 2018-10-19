@@ -4,6 +4,8 @@ import android.os.AsyncTask
 import android.util.Log
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
+import com.google.gson.JsonObject
+import org.json.JSONObject
 import java.io.IOException
 import java.io.InputStream
 import java.net.HttpURLConnection
@@ -16,18 +18,18 @@ private val URL:String = "https://private-f2106d-evertec1.apiary-mock.com/questi
 class WalletTransationResp(var completeListener: CompleteListener?): AsyncTask<String, Void, String>() {
 
     //to Transfor JSON
-    val gson: Gson = GsonBuilder().setPrettyPrinting().create()
+    val gson: Gson = GsonBuilder().setPrettyPrinting().create() // for pretty print feature
+
+
 
     //HERE WE GET THE INFO AND SEND TO A LISTENER
     override fun doInBackground(vararg params: String): String? {
 
         try {
-            var respJSON = gson.toJson(donwloadData(URL))
-            val response = gson.fromJson(donwloadData(URL), ResponseWalletTransation::class.java)
-            Log.d("\t\t\tResponse", response.authNumber)
-            return  respJSON
+
+            return (donwloadData(URL))
         }catch (e:IOException){
-            Log.d("\t\t\tResponse", e.message)
+            return null
         }
 
         return null
@@ -36,9 +38,13 @@ class WalletTransationResp(var completeListener: CompleteListener?): AsyncTask<S
     override fun onPostExecute(result: String) {
 
         try {
-            completeListener?.downloadCompleted(result)
-            Log.d("\t\t\tPOST",result)
-        }catch (e:IOException){
+
+
+            var resp = gson.fromJson(result, ResponseWalletTransation::class.java)
+
+            completeListener?.downloadCompleted(result, resp)
+
+        }finally {
 
         }
     }
@@ -56,6 +62,8 @@ class WalletTransationResp(var completeListener: CompleteListener?): AsyncTask<S
             conn.connect()
 
             inputStream = conn.inputStream
+
+
 
             return inputStream.bufferedReader().use {
                 it.readText()

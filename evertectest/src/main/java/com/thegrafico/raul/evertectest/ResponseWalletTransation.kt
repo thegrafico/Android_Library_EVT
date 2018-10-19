@@ -14,5 +14,10 @@ data class ResponseWalletTransation(
     var trxID: String? = null,
     var trxoper: String? = null,
     var trxtype: String? = null
-)
+) {
+    override fun toString(): String {
+        return "ResponseWalletTransation(authNumber=$authNumber, bachNumber=$bachNumber, merchantid=$merchantid, postingdate=$postingdate, rCode=$rCode, rMgs=$rMgs, refNumber=$refNumber, requestID=$requestID, systemTrace=$systemTrace, trxDataTime=$trxDataTime, trxID=$trxID, trxoper=$trxoper, trxtype=$trxtype)"
+    }
+}
 
+//val response = gson.fromJson(respJSON, ResponseWalletTransation::class.java)

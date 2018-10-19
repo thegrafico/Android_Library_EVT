@@ -6,6 +6,7 @@ import android.util.Log
 import android.widget.Button
 import com.thegrafico.raul.evertectest.CompleteListener
 import com.thegrafico.raul.evertectest.ProcessWalletTransactionData
+import com.thegrafico.raul.evertectest.ResponseWalletTransation
 import com.thegrafico.raul.evertectest.WalletTransationResp
 
 
@@ -31,17 +32,17 @@ class MainActivity : AppCompatActivity() {
             processPW.trxDescription = "Sale of materials"
             processPW.filler1 = "data"
             processPW.REFUN()
-
 //            processPW.exe()
-            //TESTING
-//            processPW.makeHttpRequest()
-            //END TESTING
-            // exe.(this, responseListener {})
+
 
             WalletTransationResp(object : CompleteListener{
-                override fun downloadCompleted(result: String) {
-                    Log.d("\t\t\tDownload Completed", result)
+                override fun downloadCompleted(result: String, response: ResponseWalletTransation?) {
+                    Log.d("\t\t\tResponse:", result)
+                    if(response != null){
+                        Log.d("\t\t\tRESPONSE WALLET",response.toString())
+                    }
                 }
+
             }).execute()
         }
     }
