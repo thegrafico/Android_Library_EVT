@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
-            WalletTransationResp(object : CompleteListener{
+            WalletTransationResp(object : CompleteListener {
                 override fun downloadCompleted(result: String, response: ResponseWalletTransation?) {
                     Log.d("\t\t\tResponse:", result)
                     if(response != null){

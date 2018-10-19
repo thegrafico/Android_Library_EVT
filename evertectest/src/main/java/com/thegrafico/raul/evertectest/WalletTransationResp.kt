@@ -13,7 +13,9 @@ import java.io.OutputStreamWriter
 
 @Suppress("UNREACHABLE_CODE")
 
-private val URL:String = "http://httpbin.org/post"
+//var st: String = R.string.urlApiary.toString()
+
+private val URL:String = "https://private-f2106d-evertec1.apiary-mock.com/questions"
 
 class WalletTransationResp(var completeListener: CompleteListener?,var dataToPost: ProcessWalletTransactionData): AsyncTask<String, Void, String>() {
 
@@ -24,7 +26,6 @@ class WalletTransationResp(var completeListener: CompleteListener?,var dataToPos
     override fun doInBackground(vararg params: String): String? {
 
         try {
-
             return (donwloadData(URL))
         }catch (e:IOException){
             return null
@@ -56,18 +57,24 @@ class WalletTransationResp(var completeListener: CompleteListener?,var dataToPos
 
         try{
 
+            //Our URL goes Here
             val url = URL(url)
+
+            //Make HTTP request
             val conn = url.openConnection() as HttpURLConnection
+
+            //-------------setup----------------------
             conn.setRequestProperty("Content-Type", "application/json; charset=UTF-8")
             conn.setRequestProperty("Accept", "application/json")
             conn.doOutput = true
-
             conn.requestMethod = "POST"
             conn.connect()
 
             //send data
             val wr = OutputStreamWriter(conn.getOutputStream())
-            wr.write(jsonDataToPost().toString())
+
+            //Here dataToPost is JSON Object
+            wr.write(Gson().toJson(dataToPost))
 
             wr.flush()
             wr.close()
@@ -83,21 +90,4 @@ class WalletTransationResp(var completeListener: CompleteListener?,var dataToPos
             }
         }
     }
-
-    fun jsonDataToPost():JSONObject{
-        var data = JSONObject()
-
-        data.put("username", dataToPost.username)
-        data.put("password", dataToPost.password)
-        data.put("accountNumber", dataToPost.accountNumber)
-        data.put("trxID", dataToPost.trxID)
-        data.put("trxAmout", dataToPost.trxAmout)
-        data.put("refNumber", dataToPost.refNumber)
-        data.put("trxDescription", dataToPost.trxDescription)
-        data.put("filler1", dataToPost.filler1)
-        data.put("trxOper",dataToPost.trxOper )
-
-         return data
-    }
-
 }
