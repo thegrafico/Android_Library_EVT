@@ -24,7 +24,7 @@ class ProcessWalletTransactionData{
     private val txrOperREFUND: String = "REFUND"
 
     //RESPONSE WALLET
-    private var walletTransactionResp = WalletTransactionResp()
+//    private var walletTransactionResp = WalletTransactionResp()
 
     //TO Convert string to JSON object
     private var gson: Gson? = null
