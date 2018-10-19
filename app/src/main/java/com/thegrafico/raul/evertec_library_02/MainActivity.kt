@@ -6,7 +6,7 @@ import android.util.Log
 import android.widget.Button
 import com.thegrafico.raul.evertectest.CompleteListener
 import com.thegrafico.raul.evertectest.ProcessWalletTransactionData
-import com.thegrafico.raul.evertectest.ResponseWalletTransation
+import com.thegrafico.raul.evertectest.ResponseWalletTransaction
 import com.thegrafico.raul.evertectest.WalletTransationResp
 
 
@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
 
 
             WalletTransationResp(object : CompleteListener {
-                override fun downloadCompleted(result: String, response: ResponseWalletTransation?) {
+                override fun downloadCompleted(result: String, response: ResponseWalletTransaction?) {
                     Log.d("\t\t\tResponse:", result)
                     if(response != null){
                         Log.d("\t\t\tRESPONSE WALLET",response.toString())

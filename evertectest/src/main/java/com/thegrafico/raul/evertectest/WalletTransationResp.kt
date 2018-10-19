@@ -40,7 +40,7 @@ class WalletTransationResp(var completeListener: CompleteListener?,var dataToPos
         try {
 
 
-            val resp = gson.fromJson(result, ResponseWalletTransation::class.java)
+            val resp = gson.fromJson(result, ResponseWalletTransaction::class.java)
 
             completeListener?.downloadCompleted(result, resp)
 

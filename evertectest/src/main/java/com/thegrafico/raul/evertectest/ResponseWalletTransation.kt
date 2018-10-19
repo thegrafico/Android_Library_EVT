@@ -1,6 +1,6 @@
 package com.thegrafico.raul.evertectest
 
-data class ResponseWalletTransation(
+data class ResponseWalletTransaction(
     var authNumber:String? = null,
     var bachNumber:String? = null,
     var merchantid:String? =  null,
@@ -21,3 +21,5 @@ data class ResponseWalletTransation(
 }
 
 //val response = gson.fromJson(respJSON, ResponseWalletTransation::class.java)
+
+//TODO CREAR JERARQUIA
