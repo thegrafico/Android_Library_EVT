@@ -5,6 +5,8 @@ import android.os.AsyncTask;
 import com.google.gson.Gson;
 import com.thegrafico.raul.evertectest.CompleteListener;
 import com.thegrafico.raul.evertectest.Modals.ProcessWalletTransactionData;
+import com.thegrafico.raul.evertectest.Modals.ResponseWalletTransaction;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -16,10 +18,11 @@ import java.net.URL;
 
 public class WalletTransactionResp extends AsyncTask<String, Void, String> {
 
+    String URL = "https://private-f2106d-evertec1.apiary-mock.com/questions";
     private CompleteListener completeListener;
     private ProcessWalletTransactionData dataToPost;
     private Gson gson;
-    private String dataInJson = "";
+    private String dataInJson;
 
     public WalletTransactionResp(ProcessWalletTransactionData dataToPost, CompleteListener completeListener){
         this.completeListener = completeListener;
@@ -31,12 +34,19 @@ public class WalletTransactionResp extends AsyncTask<String, Void, String> {
 
     @Override
     protected String doInBackground(String... strings) {
-        return null;
+
+        return getDataFromRequest(URL);
     }
 
     @Override
     protected void onPostExecute(String s) {
-        super.onPostExecute(s);
+       try{
+           ResponseWalletTransaction respuesta = gson.fromJson(s, ResponseWalletTransaction.class);
+
+           completeListener.downloadCompleted(s, respuesta );
+       }finally {
+
+       }
     }
 
     private String getDataFromRequest(String urlWeb){
@@ -81,8 +91,7 @@ public class WalletTransactionResp extends AsyncTask<String, Void, String> {
             streamReader.close();
 
             //returns the json object
-            return gson.toJson(responseStrBuilder);
-
+            return responseStrBuilder.toString();
 
         } catch (MalformedURLException e) {
             e.printStackTrace();

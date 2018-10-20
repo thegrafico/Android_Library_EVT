@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import com.thegrafico.raul.evertectest.CompleteListener
+import com.thegrafico.raul.evertectest.Logic.JAVA.WalletTransactionResp
 import com.thegrafico.raul.evertectest.Modals.ProcessWalletTransactionData
 import com.thegrafico.raul.evertectest.Modals.ResponseWalletTransaction
 import com.thegrafico.raul.evertectest.Logic.WalletTransationResp
@@ -35,15 +36,25 @@ class MainActivity : AppCompatActivity() {
 
 
 
-            WalletTransationResp(object : CompleteListener {
-                override fun downloadCompleted(result: String, response: ResponseWalletTransaction?) {
-                    Log.d("\t\t\tResponse:", result)
-                    if (response != null) {
-                        Log.d("\t\t\tRESPONSE WALLET", response.toString())
-                    }
-                }
 
-            }, processPW).execute()
+             WalletTransactionResp(processPW, object : CompleteListener{
+
+                 override fun downloadCompleted(result: String, response: ResponseWalletTransaction?) {
+                     Log.d("\t\tRESULT", result)
+                     Log.d("\t\tResponse", response.toString())
+                 }
+
+             }).execute()
+
+//            WalletTransationResp(object : CompleteListener {
+//                override fun downloadCompleted(result: String, response: ResponseWalletTransaction?) {
+//                    Log.d("\t\t\tResponse:", result)
+//                    if (response != null) {
+//                        Log.d("\t\t\tRESPONSE WALLET", response.toString())
+//                    }
+//                }
+//
+//            }, processPW).execute()
         }
     }
 

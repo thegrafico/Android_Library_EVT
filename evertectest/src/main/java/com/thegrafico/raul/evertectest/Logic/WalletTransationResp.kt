@@ -12,9 +12,6 @@ import java.net.HttpURLConnection
 import java.net.URL
 import java.io.OutputStreamWriter
 
-
-@Suppress("UNREACHABLE_CODE")
-
 private val URL:String = "https://private-f2106d-evertec1.apiary-mock.com/questions"
 
 class WalletTransationResp(var completeListener: CompleteListener?, var dataToPost: ProcessWalletTransactionData): AsyncTask<String, Void, String>() {
@@ -38,15 +35,11 @@ class WalletTransationResp(var completeListener: CompleteListener?, var dataToPo
     override fun onPostExecute(result: String) {
 
         try {
-
-
             val resp = gson.fromJson(result, ResponseWalletTransaction::class.java)
 
             completeListener?.downloadCompleted(result, resp)
 
-        }finally {
-
-        }
+        }finally {}
     }
 
     //POST OR GET REQUEST
