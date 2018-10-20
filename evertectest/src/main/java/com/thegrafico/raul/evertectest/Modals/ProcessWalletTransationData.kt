@@ -1,4 +1,4 @@
-package com.thegrafico.raul.evertectest
+package com.thegrafico.raul.evertectest.Modals
 //Constructor
 class ProcessWalletTransactionData{
 

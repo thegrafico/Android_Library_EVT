@@ -1,4 +1,4 @@
-package com.thegrafico.raul.evertectest
+package com.thegrafico.raul.evertectest.Modals
 
 data class ResponseWalletTransaction(
     var authNumber:String? = null,
