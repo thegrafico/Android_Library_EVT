@@ -4,11 +4,13 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import com.thegrafico.raul.evertectest.ConectorListener.ResponseListenerCheckoutPayment
 import com.thegrafico.raul.evertectest.ConectorListener.ResponseWalletListener
 import com.thegrafico.raul.evertectest.Logic.CheckoutPaymentResp
 import com.thegrafico.raul.evertectest.Logic.WalletTransactionResp
 import com.thegrafico.raul.evertectest.Modals.Request.ProcessCheckoutPayment
 import com.thegrafico.raul.evertectest.Modals.Request.ProcessWalletTransaction
+import com.thegrafico.raul.evertectest.Modals.Response.ResponseCheckoutPayment
 import com.thegrafico.raul.evertectest.Modals.Response.ResponseWalletTransaction
 
 
@@ -78,13 +80,17 @@ class MainActivity : AppCompatActivity() {
         }
 
         //WALLET en JAVA
-        CheckoutPaymentResp(checkoutPayment, object {
-
-            override fun downloadCompleted(result: String, response: ResponseCheckoutPayment?) {
+        CheckoutPaymentResp(checkoutPayment, object: ResponseListenerCheckoutPayment{
+            override fun downloadCompleted(result: String?, response: ResponseCheckoutPayment?) {
                 Log.d("\t\tRESULT", result)
                 Log.d("\t\tResponse", response.toString())
             }
+
         }).execute()
+
+    }
+
+    fun processTransSearch(){
 
     }
 
