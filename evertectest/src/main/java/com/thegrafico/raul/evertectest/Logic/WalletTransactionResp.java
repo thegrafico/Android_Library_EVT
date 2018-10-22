@@ -1,4 +1,4 @@
-package com.thegrafico.raul.evertectest.Logic.JAVA;
+package com.thegrafico.raul.evertectest.Logic;
 
 import android.os.AsyncTask;
 
@@ -29,7 +29,7 @@ public class WalletTransactionResp extends AsyncTask<String, Void, String> {
         this.dataToPost = dataToPost;
         gson = new Gson();
 
-        dataInJson = gson.toJson(dataToPost);
+        dataInJson = gson.toJson(this.dataToPost);
     }
 
     @Override

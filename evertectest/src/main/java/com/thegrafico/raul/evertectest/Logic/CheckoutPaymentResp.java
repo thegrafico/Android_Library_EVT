@@ -1,14 +1,12 @@
-package com.thegrafico.raul.evertectest.Logic.JAVA;
+package com.thegrafico.raul.evertectest.Logic;
 
 
 import android.os.AsyncTask;
 
 import com.google.gson.Gson;
-import com.thegrafico.raul.evertectest.ConectorListener.ResponseCheckoutPayment;
-import com.thegrafico.raul.evertectest.ConectorListener.ResponseWalletListener;
+import com.thegrafico.raul.evertectest.ConectorListener.ResponseListenerCheckoutPayment;
 import com.thegrafico.raul.evertectest.Modals.Request.ProcessCheckoutPayment;
-import com.thegrafico.raul.evertectest.Modals.Request.ProcessWalletTransaction;
-import com.thegrafico.raul.evertectest.Modals.Response.ResponseWalletTransaction;
+import com.thegrafico.raul.evertectest.Modals.Response.ResponseCheckoutPayment;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -22,17 +20,18 @@ import java.net.URL;
 public class CheckoutPaymentResp extends AsyncTask<String, Void, String> {
 
     String URL = "https://private-f2106d-evertec1.apiary-mock.com/questions";
-    private ResponseCheckoutPayment completeListener;
+    private ResponseListenerCheckoutPayment completeListener;
     private ProcessCheckoutPayment dataToPost;
     private Gson gson;
     private String dataInJson;
 
-    public CheckoutPaymentResp(ProcessCheckoutPayment dataToPost, ResponseCheckoutPayment completeListener){
+    public CheckoutPaymentResp(ProcessCheckoutPayment dataToPost, ResponseListenerCheckoutPayment completeListener){
+
         this.completeListener = completeListener;
         this.dataToPost = dataToPost;
         gson = new Gson();
 
-        dataInJson = gson.toJson(dataToPost);
+        dataInJson = gson.toJson(this.dataToPost);
     }
 
     @Override
