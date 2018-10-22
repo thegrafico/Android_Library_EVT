@@ -3,19 +3,20 @@ package com.thegrafico.raul.evertectest.Modals.Response;
 public class ResponseWalletTransaction {
 
 
-    private String      authNumber  = null,
-                        bachNumber  = null,
-                        merchantid  = null,
-                        postingdate = null,
-                        rCode       = null,
-                        rMgs        = null,
-                        refNumber   = null,
-                        requestID   = null,
-                        systemTrace = null,
-                        trxDataTime = null,
-                        trxID       = null,
-                        trxoper     = null,
-                        trxtype     = null;
+    private String
+            authNumber  = null,
+            bachNumber  = null,
+            merchantid  = null,
+            postingdate = null,
+            rCode       = null,
+            rMgs        = null,
+            refNumber   = null,
+            requestID   = null,
+            systemTrace = null,
+            trxDataTime = null,
+            trxID       = null,
+            trxoper     = null,
+            trxtype     = null;
 
     public ResponseWalletTransaction(){
         super();

@@ -1,6 +1,6 @@
 package com.thegrafico.raul.evertectest.Modals.Request;
 
-public class ProcessCheckoutPayment {
+public class ProcessCheckoutPayment_Request {
 
 
     //Variables
@@ -25,7 +25,7 @@ public class ProcessCheckoutPayment {
     private String taxAmount[] = new String [5];
     private String filler[] = new String[3];
 
-    public ProcessCheckoutPayment(){super();}
+    public ProcessCheckoutPayment_Request(){super();}
 
     public String getUsername() {
         return username;

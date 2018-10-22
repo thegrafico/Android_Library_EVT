@@ -10,9 +10,9 @@ import com.thegrafico.raul.evertectest.ConectorListener.WalletTransactionListene
 import com.thegrafico.raul.evertectest.Logic.CheckoutPaymentResp
 import com.thegrafico.raul.evertectest.Logic.TransactionSearchResp
 import com.thegrafico.raul.evertectest.Logic.WalletTransactionResp
-import com.thegrafico.raul.evertectest.Modals.Request.ProcessCheckoutPayment
-import com.thegrafico.raul.evertectest.Modals.Request.ProcessTransactionSearch
-import com.thegrafico.raul.evertectest.Modals.Request.ProcessWalletTransaction
+import com.thegrafico.raul.evertectest.Modals.Request.ProcessCheckoutPayment_Request
+import com.thegrafico.raul.evertectest.Modals.Request.ProcessTransactionSearch_Request
+import com.thegrafico.raul.evertectest.Modals.Request.ProcessWalletTransaction_Request
 import com.thegrafico.raul.evertectest.Modals.Response.ResponseCheckoutPayment
 import com.thegrafico.raul.evertectest.Modals.Response.ResponseTransactionSearch
 import com.thegrafico.raul.evertectest.Modals.Response.ResponseWalletTransaction
@@ -28,13 +28,13 @@ class MainActivity : AppCompatActivity() {
         var volleyBtn: Button = findViewById(R.id.vRequest)
 
         volleyBtn.setOnClickListener {
-            processTransSearch()
+            processWalletTrans()
         }
     }
 
     //Process WalletTransaction
     fun processWalletTrans(){
-        val processPW = ProcessWalletTransaction()
+        val processPW = ProcessWalletTransaction_Request()
         processPW.username = "Pedrito"
         processPW.password = "1234"
         processPW.accountNumber = "147258"
@@ -58,7 +58,7 @@ class MainActivity : AppCompatActivity() {
 
     //Process CheckoutPayment
     fun processCheckoutPay(){
-        val checkoutPayment = ProcessCheckoutPayment()
+        val checkoutPayment = ProcessCheckoutPayment_Request()
         checkoutPayment.username          = "Jesus123"
         checkoutPayment.password          = "1234"
         checkoutPayment.accountID         = "001"
@@ -95,7 +95,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun processTransSearch(){
-        val transactionSearch = ProcessTransactionSearch()
+        val transactionSearch = ProcessTransactionSearch_Request()
         transactionSearch.username          = "Jesus123"
         transactionSearch.password          = "1234"
         transactionSearch.accountID         = "123456"

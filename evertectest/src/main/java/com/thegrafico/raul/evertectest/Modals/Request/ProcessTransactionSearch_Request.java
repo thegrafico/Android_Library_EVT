@@ -1,6 +1,6 @@
 package com.thegrafico.raul.evertectest.Modals.Request;
 
-public class ProcessTransactionSearch {
+public class ProcessTransactionSearch_Request {
 
     private String
                     username    = null,
@@ -9,7 +9,7 @@ public class ProcessTransactionSearch {
                     trxID       = null,
                     trxAmount   = null;
 
-    public ProcessTransactionSearch(){
+    public ProcessTransactionSearch_Request(){
         super();
     }
 

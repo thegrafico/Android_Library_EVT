@@ -1,6 +1,6 @@
 package com.thegrafico.raul.evertectest.Modals.Request;
 
-public class ProcessWalletTransaction {
+public class ProcessWalletTransaction_Request {
 
     private String  username        = null,
                     password        = null,
@@ -12,7 +12,7 @@ public class ProcessWalletTransaction {
                     filler1         = null,
                     trxOper         = null;
 
-    public ProcessWalletTransaction(){
+    public ProcessWalletTransaction_Request(){
         super();
     }
 
@@ -88,18 +88,5 @@ public class ProcessWalletTransaction {
         this.trxOper = trxOper;
     }
 
-    @Override
-    public String toString() {
-        return "ProcessWalletTransaction{" +
-                "username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", accountNumber='" + accountNumber + '\'' +
-                ", trxID='" + trxID + '\'' +
-                ", trxAmout='" + trxAmout + '\'' +
-                ", refNumber='" + refNumber + '\'' +
-                ", trxDescription='" + trxDescription + '\'' +
-                ", filler1='" + filler1 + '\'' +
-                ", trxOper='" + trxOper + '\'' +
-                '}';
-    }
+
 }
