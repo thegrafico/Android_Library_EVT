@@ -7,7 +7,6 @@ import android.widget.Button
 import com.thegrafico.raul.evertectest.CompleteListener
 import com.thegrafico.raul.evertectest.Logic.JAVA.WalletTransactionResp
 import com.thegrafico.raul.evertectest.Modals.Request.ProcessWalletTransaction
-import com.thegrafico.raul.evertectest.Modals.Request.ProcessWalletTransactionData
 import com.thegrafico.raul.evertectest.Modals.Response.ResponseWalletTransaction
 
 
@@ -32,7 +31,7 @@ class MainActivity : AppCompatActivity() {
             processPW.refNumber = "159236"
             processPW.trxDescription = "Sale of materials"
             processPW.filler1 = "data"
-            processPW.trxOper = 'REFUND'
+            processPW.trxOper = "REFUND"
 
             //WALLET en JAVA
             WalletTransactionResp(processPW, object : CompleteListener{
