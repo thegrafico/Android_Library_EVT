@@ -4,7 +4,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
-import com.thegrafico.raul.evertectest.CompleteListener
+import com.thegrafico.raul.evertectest.ConectorListener.ResponseWalletListener
 import com.thegrafico.raul.evertectest.Logic.JAVA.WalletTransactionResp
 import com.thegrafico.raul.evertectest.Modals.Request.ProcessWalletTransaction
 import com.thegrafico.raul.evertectest.Modals.Response.ResponseWalletTransaction
@@ -34,25 +34,13 @@ class MainActivity : AppCompatActivity() {
             processPW.trxOper = "REFUND"
 
             //WALLET en JAVA
-            WalletTransactionResp(processPW, object : CompleteListener{
+            WalletTransactionResp(processPW, object : ResponseWalletListener {
 
                  override fun downloadCompleted(result: String, response: ResponseWalletTransaction?) {
                      Log.d("\t\tRESULT", result)
                      Log.d("\t\tResponse", response.toString())
                  }
-
              }).execute()
-
-            //WALLET en KOTLING
-//            WalletTransationResp(object : CompleteListener {
-//                override fun downloadCompleted(result: String, response: ResponseWalletTransaction?) {
-//                    Log.d("\t\t\tResponse:", result)
-//                    if (response != null) {
-//                        Log.d("\t\t\tRESPONSE WALLET", response.toString())
-//                    }
-//                }
-//
-//            }, processPW).execute()
         }
     }
 

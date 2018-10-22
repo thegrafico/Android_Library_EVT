@@ -1,9 +1,9 @@
-package com.thegrafico.raul.evertectest.Logic
+package com.thegrafico.raul.evertectest.Logic.Kotlin
 
 import android.os.AsyncTask
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import com.thegrafico.raul.evertectest.CompleteListener
+import com.thegrafico.raul.evertectest.ConectorListener.ResponseWalletListener
 import com.thegrafico.raul.evertectest.Modals.Request.ProcessWalletTransaction
 import com.thegrafico.raul.evertectest.Modals.Response.ResponseWalletTransaction
 import java.io.IOException
@@ -14,7 +14,7 @@ import java.io.OutputStreamWriter
 
 private val URL:String = "https://private-f2106d-evertec1.apiary-mock.com/questions"
 
-class WalletTransationResp(var completeListener: CompleteListener?, var dataToPost: ProcessWalletTransaction): AsyncTask<String, Void, String>() {
+class WalletTransationResp(var completeListener: ResponseWalletListener?, var dataToPost: ProcessWalletTransaction): AsyncTask<String, Void, String>() {
 
     //to Transfor JSON
     val gson: Gson = GsonBuilder().setPrettyPrinting().create() // for pretty print feature
