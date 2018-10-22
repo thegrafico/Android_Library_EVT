@@ -1,6 +1,6 @@
 package com.thegrafico.raul.evertectest
 
-import com.thegrafico.raul.evertectest.Modals.ResponseWalletTransaction
+import com.thegrafico.raul.evertectest.Modals.Response.ResponseWalletTransaction
 
 interface CompleteListener {
 

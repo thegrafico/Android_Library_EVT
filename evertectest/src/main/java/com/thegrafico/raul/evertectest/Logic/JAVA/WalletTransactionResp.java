@@ -4,8 +4,8 @@ import android.os.AsyncTask;
 
 import com.google.gson.Gson;
 import com.thegrafico.raul.evertectest.CompleteListener;
-import com.thegrafico.raul.evertectest.Modals.ProcessWalletTransactionData;
-import com.thegrafico.raul.evertectest.Modals.ResponseWalletTransaction;
+import com.thegrafico.raul.evertectest.Modals.Request.ProcessWalletTransaction;
+import com.thegrafico.raul.evertectest.Modals.Response.ResponseWalletTransaction;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -20,11 +20,11 @@ public class WalletTransactionResp extends AsyncTask<String, Void, String> {
 
     String URL = "https://private-f2106d-evertec1.apiary-mock.com/questions";
     private CompleteListener completeListener;
-    private ProcessWalletTransactionData dataToPost;
+    private ProcessWalletTransaction dataToPost;
     private Gson gson;
     private String dataInJson;
 
-    public WalletTransactionResp(ProcessWalletTransactionData dataToPost, CompleteListener completeListener){
+    public WalletTransactionResp(ProcessWalletTransaction dataToPost, CompleteListener completeListener){
         this.completeListener = completeListener;
         this.dataToPost = dataToPost;
         gson = new Gson();

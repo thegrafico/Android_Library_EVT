@@ -6,9 +6,9 @@ import android.util.Log
 import android.widget.Button
 import com.thegrafico.raul.evertectest.CompleteListener
 import com.thegrafico.raul.evertectest.Logic.JAVA.WalletTransactionResp
-import com.thegrafico.raul.evertectest.Modals.ProcessWalletTransactionData
-import com.thegrafico.raul.evertectest.Modals.ResponseWalletTransaction
-import com.thegrafico.raul.evertectest.Logic.WalletTransationResp
+import com.thegrafico.raul.evertectest.Modals.Request.ProcessWalletTransaction
+import com.thegrafico.raul.evertectest.Modals.Request.ProcessWalletTransactionData
+import com.thegrafico.raul.evertectest.Modals.Response.ResponseWalletTransaction
 
 
 class MainActivity : AppCompatActivity() {
@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
 
         volleyBtn.setOnClickListener {
 
-            val processPW = ProcessWalletTransactionData()
+            val processPW = ProcessWalletTransaction()
             processPW.username = "Pedrito"
             processPW.password = "1234"
             processPW.accountNumber = "147258"
@@ -32,12 +32,10 @@ class MainActivity : AppCompatActivity() {
             processPW.refNumber = "159236"
             processPW.trxDescription = "Sale of materials"
             processPW.filler1 = "data"
-            processPW.trxAmout = processPW.REFUN()
+            processPW.trxOper = 'REFUND'
 
-
-
-
-             WalletTransactionResp(processPW, object : CompleteListener{
+            //WALLET en JAVA
+            WalletTransactionResp(processPW, object : CompleteListener{
 
                  override fun downloadCompleted(result: String, response: ResponseWalletTransaction?) {
                      Log.d("\t\tRESULT", result)
@@ -46,6 +44,7 @@ class MainActivity : AppCompatActivity() {
 
              }).execute()
 
+            //WALLET en KOTLING
 //            WalletTransationResp(object : CompleteListener {
 //                override fun downloadCompleted(result: String, response: ResponseWalletTransaction?) {
 //                    Log.d("\t\t\tResponse:", result)
