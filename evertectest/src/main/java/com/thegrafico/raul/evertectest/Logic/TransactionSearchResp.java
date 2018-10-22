@@ -5,8 +5,11 @@ import android.os.AsyncTask;
 
 import com.google.gson.Gson;
 import com.thegrafico.raul.evertectest.ConectorListener.CheckoutPaymentListenerResponse;
+import com.thegrafico.raul.evertectest.ConectorListener.TransactionSearchListenerResponse;
 import com.thegrafico.raul.evertectest.Modals.Request.ProcessCheckoutPayment;
+import com.thegrafico.raul.evertectest.Modals.Request.ProcessTransactionSearch;
 import com.thegrafico.raul.evertectest.Modals.Response.ResponseCheckoutPayment;
+import com.thegrafico.raul.evertectest.Modals.Response.ResponseTransactionSearch;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -17,15 +20,21 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class CheckoutPaymentResp extends AsyncTask<String, Void, String> {
+public class TransactionSearchResp extends AsyncTask<String, Void, String> {
 
     String URL = "https://private-f2106d-evertec1.apiary-mock.com/questions";
-    private CheckoutPaymentListenerResponse completeListener;
-    private ProcessCheckoutPayment dataToPost;
+
+
+    //Listener
+    private TransactionSearchListenerResponse completeListener;
+
+    //RESQUEST DATA
+    private ProcessTransactionSearch dataToPost;
+
     private Gson gson;
     private String dataInJson;
 
-    public CheckoutPaymentResp(ProcessCheckoutPayment dataToPost, CheckoutPaymentListenerResponse completeListener){
+    public TransactionSearchResp(ProcessTransactionSearch dataToPost, TransactionSearchListenerResponse completeListener){
 
         this.completeListener = completeListener;
         this.dataToPost = dataToPost;
@@ -43,7 +52,7 @@ public class CheckoutPaymentResp extends AsyncTask<String, Void, String> {
     @Override
     protected void onPostExecute(String s) {
         try{
-            ResponseCheckoutPayment respuesta = gson.fromJson(s, ResponseCheckoutPayment.class);
+            ResponseTransactionSearch respuesta = gson.fromJson(s, ResponseTransactionSearch.class);
 
             completeListener.downloadCompleted(s, respuesta );
         }finally {

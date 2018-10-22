@@ -9,7 +9,7 @@ public class ResponseTransactionSearch {
                     rCode           = null,
                     rMsg            = null,
                     refNumber       = null,
-                    resquestID      = null,
+                    requestID      = null,
                     statusCode      = null,
                     trxDateTime     = null,
                     trxID           = null,
@@ -68,12 +68,12 @@ public class ResponseTransactionSearch {
         this.refNumber = refNumber;
     }
 
-    public String getResquestID() {
-        return resquestID;
+    public String getRequestID() {
+        return requestID;
     }
 
-    public void setResquestID(String resquestID) {
-        this.resquestID = resquestID;
+    public void setRequestID(String requestID) {
+        this.requestID = requestID;
     }
 
     public String getStatusCode() {
@@ -125,7 +125,7 @@ public class ResponseTransactionSearch {
                 ", rCode='" + rCode + '\'' +
                 ", rMsg='" + rMsg + '\'' +
                 ", refNumber='" + refNumber + '\'' +
-                ", resquestID='" + resquestID + '\'' +
+                ", resquestID='" + requestID + '\'' +
                 ", statusCode='" + statusCode + '\'' +
                 ", trxDateTime='" + trxDateTime + '\'' +
                 ", trxID='" + trxID + '\'' +

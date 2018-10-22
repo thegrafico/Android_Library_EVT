@@ -4,13 +4,17 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
-import com.thegrafico.raul.evertectest.ConectorListener.ResponseListenerCheckoutPayment
-import com.thegrafico.raul.evertectest.ConectorListener.ResponseWalletListener
+import com.thegrafico.raul.evertectest.ConectorListener.CheckoutPaymentListenerResponse
+import com.thegrafico.raul.evertectest.ConectorListener.TransactionSearchListenerResponse
+import com.thegrafico.raul.evertectest.ConectorListener.WalletTransactionListenerResponse
 import com.thegrafico.raul.evertectest.Logic.CheckoutPaymentResp
+import com.thegrafico.raul.evertectest.Logic.TransactionSearchResp
 import com.thegrafico.raul.evertectest.Logic.WalletTransactionResp
 import com.thegrafico.raul.evertectest.Modals.Request.ProcessCheckoutPayment
+import com.thegrafico.raul.evertectest.Modals.Request.ProcessTransactionSearch
 import com.thegrafico.raul.evertectest.Modals.Request.ProcessWalletTransaction
 import com.thegrafico.raul.evertectest.Modals.Response.ResponseCheckoutPayment
+import com.thegrafico.raul.evertectest.Modals.Response.ResponseTransactionSearch
 import com.thegrafico.raul.evertectest.Modals.Response.ResponseWalletTransaction
 
 
@@ -24,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         var volleyBtn: Button = findViewById(R.id.vRequest)
 
         volleyBtn.setOnClickListener {
-            processCheckoutPay()
+            processTransSearch()
         }
     }
 
@@ -43,7 +47,7 @@ class MainActivity : AppCompatActivity() {
         processPW.trxOper = "REFUND"
 
         //WALLET en JAVA
-        WalletTransactionResp(processPW, object : ResponseWalletListener {
+        WalletTransactionResp(processPW, object : WalletTransactionListenerResponse {
 
             override fun downloadCompleted(result: String, response: ResponseWalletTransaction?) {
                 Log.d("\t\tRESULT", result)
@@ -80,7 +84,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         //WALLET en JAVA
-        CheckoutPaymentResp(checkoutPayment, object: ResponseListenerCheckoutPayment{
+        CheckoutPaymentResp(checkoutPayment, object: CheckoutPaymentListenerResponse {
             override fun downloadCompleted(result: String?, response: ResponseCheckoutPayment?) {
                 Log.d("\t\tRESULT", result)
                 Log.d("\t\tResponse", response.toString())
@@ -91,7 +95,21 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun processTransSearch(){
+        val transactionSearch = ProcessTransactionSearch()
+        transactionSearch.username          = "Jesus123"
+        transactionSearch.password          = "1234"
+        transactionSearch.accountID         = "123456"
+        transactionSearch.trxID             = "123456"
+        transactionSearch.trxAmount         = "0.1"
 
+        //WALLET en JAVA
+        TransactionSearchResp(transactionSearch, object: TransactionSearchListenerResponse {
+
+            override fun downloadCompleted(result: String?, response: ResponseTransactionSearch?) {
+                Log.d("\t\tRESULT", result)
+                Log.d("\t\tResponse", response.toString())
+            }
+
+        }).execute()
     }
-
 }
