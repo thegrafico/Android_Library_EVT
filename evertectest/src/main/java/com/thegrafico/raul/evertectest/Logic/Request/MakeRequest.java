@@ -21,7 +21,7 @@ public class MakeRequest {
         HttpURLConnection urlConnection = null;
         try{
 
-            URL url = new URL("URL");
+            URL url = new URL(URL);
 
             //Object Connection
             urlConnection = (HttpURLConnection) url.openConnection();
