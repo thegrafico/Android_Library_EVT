@@ -1,9 +1,8 @@
-package com.thegrafico.raul.evertectest.Modals.Request;
+package com.thegrafico.raul.evertectest.Modals.Request.InheritanceData;
 
 import java.util.Arrays;
 
-public class ProcessDebit {
-
+public class Data {
     //Variables
     private String
             username        = null,
@@ -21,21 +20,15 @@ public class ProcessDebit {
             refNumber       = null,
             trxDescription  = null,
             trxAmount       = null,
-            trxTermID       = null,
-            cardNumber      = null,
-            expDate         = null,
-            pinblock        = null;
+            trxTermID       = null;
 
     private String filler[] = new String[3];
 
-    //CONSTRUCTOR
-    public ProcessDebit() {
-        super();
-    }
+    public Data(){}
 
     @Override
     public String toString() {
-        return "ProcessDebit{" +
+        return "Data{" +
                 "username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", trxOper='" + trxOper + '\'' +
@@ -52,9 +45,6 @@ public class ProcessDebit {
                 ", trxDescription='" + trxDescription + '\'' +
                 ", trxAmount='" + trxAmount + '\'' +
                 ", trxTermID='" + trxTermID + '\'' +
-                ", cardNumber='" + cardNumber + '\'' +
-                ", expDate='" + expDate + '\'' +
-                ", pinblock='" + pinblock + '\'' +
                 ", filler=" + Arrays.toString(filler) +
                 '}';
     }
@@ -187,30 +177,6 @@ public class ProcessDebit {
         this.trxTermID = trxTermID;
     }
 
-    public String getCardNumber() {
-        return cardNumber;
-    }
-
-    public void setCardNumber(String cardNumber) {
-        this.cardNumber = cardNumber;
-    }
-
-    public String getExpDate() {
-        return expDate;
-    }
-
-    public void setExpDate(String expDate) {
-        this.expDate = expDate;
-    }
-
-    public String getPinblock() {
-        return pinblock;
-    }
-
-    public void setPinblock(String pinblock) {
-        this.pinblock = pinblock;
-    }
-
     public String[] getFiller() {
         return filler;
     }
@@ -218,6 +184,4 @@ public class ProcessDebit {
     public void setFiller(String[] filler) {
         this.filler = filler;
     }
-
-
 }

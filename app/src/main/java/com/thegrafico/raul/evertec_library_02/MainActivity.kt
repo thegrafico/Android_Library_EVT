@@ -30,6 +30,7 @@ class MainActivity : AppCompatActivity() {
         btnRequest.setOnClickListener {
             processCheckoutPay()
         }
+
     }
 
     //Process WalletTransaction
