@@ -9,7 +9,7 @@ public class ResponseWalletTransaction {
             merchantid  = null,
             postingdate = null,
             rCode       = null,
-            rMgs        = null,
+            rMsg        = null,
             refNumber   = null,
             requestID   = null,
             systemTrace = null,
@@ -62,12 +62,12 @@ public class ResponseWalletTransaction {
         this.rCode = rCode;
     }
 
-    public String getrMgs() {
-        return rMgs;
+    public String getrMsg() {
+        return rMsg;
     }
 
-    public void setrMgs(String rMgs) {
-        this.rMgs = rMgs;
+    public void setrMsg(String rMsg) {
+        this.rMsg = rMsg;
     }
 
 
@@ -135,7 +135,7 @@ public class ResponseWalletTransaction {
                 ", merchantid='" + merchantid + '\'' +
                 ", postingdate='" + postingdate + '\'' +
                 ", rCode='" + rCode + '\'' +
-                ", rMgs='" + rMgs + '\'' +
+                ", rMgs='" + rMsg + '\'' +
                 ", refNumber='" + refNumber + '\'' +
                 ", requestID='" + requestID + '\'' +
                 ", systemTrace='" + systemTrace + '\'' +

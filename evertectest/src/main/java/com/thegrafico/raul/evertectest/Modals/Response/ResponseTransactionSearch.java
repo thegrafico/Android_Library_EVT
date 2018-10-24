@@ -4,7 +4,7 @@ public class ResponseTransactionSearch {
 
     private String
                     authNumber      = null,
-                    bathNumber      = null,
+                    batchNumber      = null,
                     merchantid      = null,
                     rCode           = null,
                     rMsg            = null,
@@ -28,12 +28,12 @@ public class ResponseTransactionSearch {
         this.authNumber = authNumber;
     }
 
-    public String getBathNumber() {
-        return bathNumber;
+    public String getbatchNumber() {
+        return batchNumber;
     }
 
-    public void setBathNumber(String bathNumber) {
-        this.bathNumber = bathNumber;
+    public void setbatchNumber(String bathNumber) {
+        this.batchNumber = bathNumber;
     }
 
     public String getMerchantid() {
@@ -120,7 +120,7 @@ public class ResponseTransactionSearch {
     public String toString() {
         return "ResponseTransactionSearch{" +
                 "authNumber='" + authNumber + '\'' +
-                ", bathNumber='" + bathNumber + '\'' +
+                ", bathNumber='" + batchNumber + '\'' +
                 ", merchantid='" + merchantid + '\'' +
                 ", rCode='" + rCode + '\'' +
                 ", rMsg='" + rMsg + '\'' +

@@ -48,8 +48,5 @@ public class CheckoutPaymentResp extends AsyncTask<String, Void, String> {
         }catch (Exception e){
             Log.d("Error", e.getMessage());
         }
-        finally {
-
-        }
     }
 }

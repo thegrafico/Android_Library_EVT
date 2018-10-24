@@ -1,6 +1,7 @@
 package com.thegrafico.raul.evertectest.Logic;
 
 import android.os.AsyncTask;
+import android.util.Log;
 
 import com.google.gson.Gson;
 import com.thegrafico.raul.evertectest.ConectorListener.WalletTransactionListenerResponse;
@@ -36,8 +37,8 @@ public class WalletTransactionResp extends AsyncTask<String, Void, String> {
            ResponseWalletTransaction respuesta = gson.fromJson(s, ResponseWalletTransaction.class);
 
            completeListener.downloadCompleted(s, respuesta );
-       }finally {
-
+       }catch (Exception e){
+           Log.d("ERROR", e.getMessage());
        }
     }
 }

@@ -25,10 +25,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        var volleyBtn: Button = findViewById(R.id.vRequest)
+        var btnRequest: Button = findViewById(R.id.vRequest)
 
-        volleyBtn.setOnClickListener {
-            processWalletTrans()
+        btnRequest.setOnClickListener {
+            processCheckoutPay()
         }
     }
 
@@ -94,6 +94,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    //Process TransactionSearch
     fun processTransSearch(){
         val transactionSearch = ProcessTransactionSearch_Request()
         transactionSearch.username          = "Jesus123"
@@ -102,7 +103,7 @@ class MainActivity : AppCompatActivity() {
         transactionSearch.trxID             = "123456"
         transactionSearch.trxAmount         = "0.1"
 
-        //WALLET en JAVA
+
         TransactionSearchResp(transactionSearch, object: TransactionSearchListenerResponse {
 
             override fun downloadCompleted(result: String?, response: ResponseTransactionSearch?) {
@@ -112,4 +113,5 @@ class MainActivity : AppCompatActivity() {
 
         }).execute()
     }
+
 }

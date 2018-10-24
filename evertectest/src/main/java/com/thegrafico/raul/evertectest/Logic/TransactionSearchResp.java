@@ -2,6 +2,7 @@ package com.thegrafico.raul.evertectest.Logic;
 
 
 import android.os.AsyncTask;
+import android.util.Log;
 
 import com.google.gson.Gson;
 import com.thegrafico.raul.evertectest.ConectorListener.TransactionSearchListenerResponse;
@@ -42,8 +43,8 @@ public class TransactionSearchResp extends AsyncTask<String, Void, String> {
             ResponseTransactionSearch respuesta = gson.fromJson(s, ResponseTransactionSearch.class);
 
             completeListener.downloadCompleted(s, respuesta );
-        }finally {
-
+        }catch (Exception e){
+            Log.d("ERROR", e.getMessage());
         }
     }
 }
