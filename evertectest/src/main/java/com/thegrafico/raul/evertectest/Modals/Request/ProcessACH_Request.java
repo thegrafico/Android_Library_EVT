@@ -1,14 +1,18 @@
-package com.thegrafico.raul.evertectest.Modals.Request.InheritanceData;
+package com.thegrafico.raul.evertectest.Modals.Request;
 
-public class ProcessACH extends Data {
+import com.thegrafico.raul.evertectest.Modals.Request.InheritanceData.Data;
+
+public class ProcessACH_Request extends Data {
 
     private String
         backAccount     = null,
         routing         = null,
         accType         = null;
 
-    public ProcessACH(){}
+    public ProcessACH_Request(){}
 
+
+    //TODO MEJORAR EL TOSTRING CON EL SUPER
     @Override
     public String toString() {
         return "ProcessACH{" +
