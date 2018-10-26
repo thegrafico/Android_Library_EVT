@@ -45,8 +45,6 @@ public class ProcessResponse extends AsyncTask<String, Void, String> {
     //VARIABLES
     private int count = 0;
     private Gson gson = new Gson();
-    private String dataInJson;
-
 
     public ProcessResponse(ProcessDebit_Request request, DebitListenerResponse downloadComplete){
         //COUNT FOR SWITCH
