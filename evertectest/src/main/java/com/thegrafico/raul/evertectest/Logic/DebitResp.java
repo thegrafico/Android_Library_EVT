@@ -10,22 +10,32 @@ import com.thegrafico.raul.evertectest.Logic.Request.MakeRequest;
 import com.thegrafico.raul.evertectest.Modals.Request.ProcessDebit_Request;
 import com.thegrafico.raul.evertectest.Modals.Response.ResponseDebit;
 
-public class DebitResp extends AsyncTask<String, Void, String> {
+public class DebitResp extends AsyncTask<String, Void, String>  {
 
-    private DebitListenerResponse completeListener;
+    //Classes
     private ProcessDebit_Request dataToPost;
+    private DebitListenerResponse completedListener;
+
+    //GSON
     private Gson gson;
     private String dataInJson;
 
+
+    //Constructor
     public DebitResp(ProcessDebit_Request dataToPost, DebitListenerResponse completeListener){
 
-        this.completeListener = completeListener;
-        this.dataToPost = dataToPost;
-        gson = new Gson();
+        //REQUEST
+        this.dataToPost =  dataToPost;
 
+        //LISTENER
+        completedListener = completeListener;
+
+        //MAKE REQUEST JSON OBJECT
+        gson = new Gson();
         dataInJson = gson.toJson(this.dataToPost);
     }
 
+    //Thread background
     @Override
     protected String doInBackground(String... strings) {
 
@@ -37,14 +47,15 @@ public class DebitResp extends AsyncTask<String, Void, String> {
         return null;
     }
 
+    //before download complete
     @Override
     protected void onPostExecute(String s) {
         try{
             ResponseDebit respuesta = gson.fromJson(s, ResponseDebit.class);
-
-            completeListener.downloadCompleted(s, respuesta );
+            completedListener.downloadCompleted(s, respuesta);
         }catch (Exception e){
             Log.d("Error", e.getMessage());
         }
     }
+
 }

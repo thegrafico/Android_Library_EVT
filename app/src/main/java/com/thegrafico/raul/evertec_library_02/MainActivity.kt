@@ -64,16 +64,16 @@ class MainActivity : AppCompatActivity() {
             processDebit.filler[i] = "filler$i"
         }
 
-        DebitResp(processDebit, object: DebitListenerResponse{
-
+        DebitResp(processDebit, object : DebitListenerResponse{
             override fun downloadCompleted(result: String?, response: ResponseDebit?) {
-                Log.d("\t\tRESULT", result)
-                Log.d("\t\tResponse", response.toString())
+             Log.d("Result: ", result)
+             Log.d("Response: ", response.toString())
             }
-
         }).execute()
 
     }
+
+
     //Process WalletTransaction
     fun processWalletTrans(){
         val processPW = ProcessWalletTransaction_Request()
