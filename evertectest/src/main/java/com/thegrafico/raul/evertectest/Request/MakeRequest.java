@@ -1,4 +1,4 @@
-package com.thegrafico.raul.evertectest.Response.Request;
+package com.thegrafico.raul.evertectest.Request;
 
 import java.io.BufferedReader;
 import java.io.IOException;

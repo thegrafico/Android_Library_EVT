@@ -5,16 +5,19 @@ import android.os.AsyncTask;
 import android.util.Log;
 
 import com.google.gson.Gson;
+import com.thegrafico.raul.evertectest.ConectorListener.ACHResponseListener;
 import com.thegrafico.raul.evertectest.ConectorListener.DebitListenerResponse;
+import com.thegrafico.raul.evertectest.Modals.Request.ProcessACH_Request;
+import com.thegrafico.raul.evertectest.Modals.Response.ResponseACH;
 import com.thegrafico.raul.evertectest.Request.MakeRequest;
 import com.thegrafico.raul.evertectest.Modals.Request.ProcessDebit_Request;
 import com.thegrafico.raul.evertectest.Modals.Response.ResponseDebit;
 
-public class DebitResp extends AsyncTask<String, Void, String>  {
+public class ACHResp extends AsyncTask<String, Void, String>  {
 
     //Classes
-    private ProcessDebit_Request dataToPost;
-    private DebitListenerResponse completedListener;
+    private ProcessACH_Request dataToPost;
+    private ACHResponseListener completedListener;
 
     //TODO: MAKE ENUM OG METHOD
 //    private enum paymentType{}
@@ -26,7 +29,7 @@ public class DebitResp extends AsyncTask<String, Void, String>  {
 
 
     //Constructor
-    public DebitResp(ProcessDebit_Request dataToPost, DebitListenerResponse completeListener){
+    public ACHResp(ProcessACH_Request dataToPost, ACHResponseListener completeListener){
 
         //REQUEST
         this.dataToPost =  dataToPost;
@@ -55,7 +58,7 @@ public class DebitResp extends AsyncTask<String, Void, String>  {
     @Override
     protected void onPostExecute(String s) {
         try{
-            ResponseDebit respuesta = gson.fromJson(s, ResponseDebit.class);
+            ResponseACH respuesta = gson.fromJson(s, ResponseACH.class);
             completedListener.downloadCompleted(s, respuesta);
         }catch (Exception e){
             Log.d("Error", e.getMessage());

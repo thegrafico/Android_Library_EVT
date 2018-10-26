@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         var btnRequest: Button = findViewById(R.id.vRequest)
 
         btnRequest.setOnClickListener {
-            processCredit()
+            processACH()
         }
 
     }
@@ -99,6 +99,44 @@ class MainActivity : AppCompatActivity() {
         }).execute()
 
     }
+
+    //ProcessACH
+    fun processACH(){
+        val processACH = ProcessACH_Request()
+        processACH.username          = "Jesus123"
+        processACH.password          = "1234"
+        processACH.accountID         = "001"
+        processACH.customerName      = "jesus"
+        processACH.customerEmail     = "test@test.com"
+        processACH.address1          = "addres1"
+        processACH.address2          = "addres2"
+        processACH.city              = "SJ"
+        processACH.state             = "PR"
+        processACH.zipcode           = "00960"
+        processACH.trxDescription    = "Pago"
+        processACH.trxAmount         = "0.1"
+        processACH.trxOper           = "sale"
+        processACH.trxID             = "123"
+        processACH.refNumber         = "123456"
+        processACH.trxTermID         = " "
+        processACH.backAccount       = "13465754"
+        processACH.routing           = "asdsadasda"
+        processACH.accType           = "w"
+
+
+        for(i in 0..2){
+            processACH.filler[i] = "filler$i"
+        }
+
+        ACHResp(processACH, object : ACHResponseListener{
+            override fun downloadCompleted(result: String?, response: ResponseACH?) {
+                Log.d("Result: ", result)
+                Log.d("Response: ", response.toString())
+            }
+        }).execute()
+
+    }
+
 
     //Process WalletTransaction
     fun processWalletTrans(){

@@ -6,7 +6,7 @@ import android.util.Log;
 
 import com.google.gson.Gson;
 import com.thegrafico.raul.evertectest.ConectorListener.CheckoutPaymentListenerResponse;
-import com.thegrafico.raul.evertectest.Response.Request.MakeRequest;
+import com.thegrafico.raul.evertectest.Request.MakeRequest;
 import com.thegrafico.raul.evertectest.Modals.Request.ProcessCheckoutPayment_Request;
 import com.thegrafico.raul.evertectest.Modals.Response.ResponseCheckoutPayment;
 

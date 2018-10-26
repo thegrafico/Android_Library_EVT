@@ -5,12 +5,9 @@ import android.util.Log;
 
 import com.google.gson.Gson;
 import com.thegrafico.raul.evertectest.ConectorListener.CreditListenerResponse;
-import com.thegrafico.raul.evertectest.ConectorListener.DebitListenerResponse;
 import com.thegrafico.raul.evertectest.Modals.Request.ProcessCredit_Request;
 import com.thegrafico.raul.evertectest.Modals.Response.ResponseCredit;
-import com.thegrafico.raul.evertectest.Response.Request.MakeRequest;
-import com.thegrafico.raul.evertectest.Modals.Request.ProcessDebit_Request;
-import com.thegrafico.raul.evertectest.Modals.Response.ResponseDebit;
+import com.thegrafico.raul.evertectest.Request.MakeRequest;
 
 public class CreditResp extends AsyncTask<String, Void, String>  {
 
