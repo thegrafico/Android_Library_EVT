@@ -1,4 +1,4 @@
-package com.thegrafico.raul.evertectest.Logic;
+package com.thegrafico.raul.evertectest.Response;
 
 
 import android.os.AsyncTask;
@@ -6,7 +6,7 @@ import android.util.Log;
 
 import com.google.gson.Gson;
 import com.thegrafico.raul.evertectest.ConectorListener.TransactionSearchListenerResponse;
-import com.thegrafico.raul.evertectest.Logic.Request.MakeRequest;
+import com.thegrafico.raul.evertectest.Response.Request.MakeRequest;
 import com.thegrafico.raul.evertectest.Modals.Request.ProcessTransactionSearch_Request;
 import com.thegrafico.raul.evertectest.Modals.Response.ResponseTransactionSearch;
 

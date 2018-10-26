@@ -1,20 +1,22 @@
-package com.thegrafico.raul.evertectest.Logic;
-
+package com.thegrafico.raul.evertectest.Response;
 
 import android.os.AsyncTask;
 import android.util.Log;
 
 import com.google.gson.Gson;
+import com.thegrafico.raul.evertectest.ConectorListener.CreditListenerResponse;
 import com.thegrafico.raul.evertectest.ConectorListener.DebitListenerResponse;
-import com.thegrafico.raul.evertectest.Logic.Request.MakeRequest;
+import com.thegrafico.raul.evertectest.Modals.Request.ProcessCredit_Request;
+import com.thegrafico.raul.evertectest.Modals.Response.ResponseCredit;
+import com.thegrafico.raul.evertectest.Response.Request.MakeRequest;
 import com.thegrafico.raul.evertectest.Modals.Request.ProcessDebit_Request;
 import com.thegrafico.raul.evertectest.Modals.Response.ResponseDebit;
 
-public class DebitResp extends AsyncTask<String, Void, String>  {
+public class CreditResp extends AsyncTask<String, Void, String>  {
 
     //Classes
-    private ProcessDebit_Request dataToPost;
-    private DebitListenerResponse completedListener;
+    private ProcessCredit_Request dataToPost;
+    private CreditListenerResponse completedListener;
 
     //GSON
     private Gson gson;
@@ -22,7 +24,7 @@ public class DebitResp extends AsyncTask<String, Void, String>  {
 
 
     //Constructor
-    public DebitResp(ProcessDebit_Request dataToPost, DebitListenerResponse completeListener){
+    public CreditResp(ProcessCredit_Request dataToPost, CreditListenerResponse completeListener){
 
         //REQUEST
         this.dataToPost =  dataToPost;
@@ -51,7 +53,7 @@ public class DebitResp extends AsyncTask<String, Void, String>  {
     @Override
     protected void onPostExecute(String s) {
         try{
-            ResponseDebit respuesta = gson.fromJson(s, ResponseDebit.class);
+            ResponseCredit respuesta = gson.fromJson(s, ResponseCredit.class);
             completedListener.downloadCompleted(s, respuesta);
         }catch (Exception e){
             Log.d("Error", e.getMessage());
@@ -59,3 +61,4 @@ public class DebitResp extends AsyncTask<String, Void, String>  {
     }
 
 }
+

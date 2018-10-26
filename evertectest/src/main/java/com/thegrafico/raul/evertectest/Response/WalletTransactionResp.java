@@ -1,11 +1,11 @@
-package com.thegrafico.raul.evertectest.Logic;
+package com.thegrafico.raul.evertectest.Response;
 
 import android.os.AsyncTask;
 import android.util.Log;
 
 import com.google.gson.Gson;
 import com.thegrafico.raul.evertectest.ConectorListener.WalletTransactionListenerResponse;
-import com.thegrafico.raul.evertectest.Logic.Request.MakeRequest;
+import com.thegrafico.raul.evertectest.Response.Request.MakeRequest;
 import com.thegrafico.raul.evertectest.Modals.Request.ProcessWalletTransaction_Request;
 import com.thegrafico.raul.evertectest.Modals.Response.ResponseWalletTransaction;
 

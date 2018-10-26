@@ -1,6 +1,4 @@
-package com.thegrafico.raul.evertectest.Logic.Request;
-
-import android.util.Log;
+package com.thegrafico.raul.evertectest.Response.Request;
 
 import java.io.BufferedReader;
 import java.io.IOException;

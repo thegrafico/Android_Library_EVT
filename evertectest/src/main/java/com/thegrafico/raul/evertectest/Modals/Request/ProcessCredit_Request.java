@@ -1,12 +1,16 @@
 package com.thegrafico.raul.evertectest.Modals.Request;
 
-public class ProcessCredit_Request extends ProcessDebit_Request {
+import com.thegrafico.raul.evertectest.Modals.Request.InheritanceData.Data;
+
+public class ProcessCredit_Request extends Data {
 
     private String
             cvv             = null,
             trxTipAmount    = null,
             trxTax1         = null,
-            trxTax2         = null;
+            trxTax2         = null,
+            cardNumber      = null,
+            expDate         = null;
 
    public ProcessCredit_Request(){}
 
@@ -41,4 +45,21 @@ public class ProcessCredit_Request extends ProcessDebit_Request {
     public void setTrxTax2(String trxTax2) {
         this.trxTax2 = trxTax2;
     }
+
+    public String getCardNumber() {
+        return cardNumber;
+    }
+
+    public void setCardNumber(String cardNumber) {
+        this.cardNumber = cardNumber;
+    }
+
+    public String getExpDate() {
+        return expDate;
+    }
+
+    public void setExpDate(String expDate) {
+        this.expDate = expDate;
+    }
+
 }

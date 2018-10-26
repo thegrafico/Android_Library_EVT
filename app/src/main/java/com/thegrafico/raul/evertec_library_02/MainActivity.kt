@@ -4,22 +4,10 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
-import com.thegrafico.raul.evertectest.ConectorListener.CheckoutPaymentListenerResponse
-import com.thegrafico.raul.evertectest.ConectorListener.DebitListenerResponse
-import com.thegrafico.raul.evertectest.ConectorListener.TransactionSearchListenerResponse
-import com.thegrafico.raul.evertectest.ConectorListener.WalletTransactionListenerResponse
-import com.thegrafico.raul.evertectest.Logic.CheckoutPaymentResp
-import com.thegrafico.raul.evertectest.Logic.DebitResp
-import com.thegrafico.raul.evertectest.Logic.TransactionSearchResp
-import com.thegrafico.raul.evertectest.Logic.WalletTransactionResp
-import com.thegrafico.raul.evertectest.Modals.Request.ProcessCheckoutPayment_Request
-import com.thegrafico.raul.evertectest.Modals.Request.ProcessDebit_Request
-import com.thegrafico.raul.evertectest.Modals.Request.ProcessTransactionSearch_Request
-import com.thegrafico.raul.evertectest.Modals.Request.ProcessWalletTransaction_Request
-import com.thegrafico.raul.evertectest.Modals.Response.ResponseCheckoutPayment
-import com.thegrafico.raul.evertectest.Modals.Response.ResponseDebit
-import com.thegrafico.raul.evertectest.Modals.Response.ResponseTransactionSearch
-import com.thegrafico.raul.evertectest.Modals.Response.ResponseWalletTransaction
+import com.thegrafico.raul.evertectest.ConectorListener.*
+import com.thegrafico.raul.evertectest.Modals.Request.*
+import com.thegrafico.raul.evertectest.Modals.Response.*
+import com.thegrafico.raul.evertectest.Response.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -32,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         var btnRequest: Button = findViewById(R.id.vRequest)
 
         btnRequest.setOnClickListener {
-            processDebit()
+            processCredit()
         }
 
     }
@@ -73,6 +61,44 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    //ProcessCredit
+    fun processCredit(){
+        val processCredit = ProcessCredit_Request()
+        processCredit.username          = "Jesus123"
+        processCredit.password          = "1234"
+        processCredit.accountID         = "001"
+        processCredit.customerName      = "jesus"
+        processCredit.customerEmail     = "test@test.com"
+        processCredit.address1          = "addres1"
+        processCredit.address2          = "addres2"
+        processCredit.city              = "SJ"
+        processCredit.state             = "PR"
+        processCredit.zipcode           = "00960"
+        processCredit.trxDescription    = "Pago"
+        processCredit.trxAmount         = "0.1"
+        processCredit.trxOper           = "sale"
+        processCredit.trxID             = "123"
+        processCredit.refNumber         = "123456"
+        processCredit.trxTermID         = " "
+        processCredit.cardNumber        = "930840000000036"
+        processCredit.expDate           = "1249"
+        processCredit.cvv               = "781"
+        processCredit.trxTipAmount      = ""
+        processCredit.trxTax1           = ""
+        processCredit.trxTax2           = ""
+
+        for(i in 0..2){
+            processCredit.filler[i] = "filler$i"
+        }
+
+        CreditResp(processCredit, object : CreditListenerResponse{
+            override fun downloadCompleted(result: String?, response: ResponseCredit?) {
+                Log.d("Result: ", result)
+                Log.d("Response: ", response.toString())
+            }
+        }).execute()
+
+    }
 
     //Process WalletTransaction
     fun processWalletTrans(){
