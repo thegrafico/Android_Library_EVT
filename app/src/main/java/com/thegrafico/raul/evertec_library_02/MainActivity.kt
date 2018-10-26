@@ -20,9 +20,88 @@ class MainActivity : AppCompatActivity() {
         var btnRequest: Button = findViewById(R.id.vRequest)
 
         btnRequest.setOnClickListener {
-            processOnlineResponse()
+            generalClass()
         }
 
+    }
+
+    //GENERAL CLASS
+    fun generalClass(){
+        val processDebit = ProcessDebit_Request()
+        processDebit.username          = "Jesus123"
+        processDebit.password          = "1234"
+        processDebit.accountID         = "001"
+        processDebit.customerName      = "jesus"
+        processDebit.customerEmail     = "test@test.com"
+        processDebit.address1          = "addres1"
+        processDebit.address2          = "addres2"
+        processDebit.city              = "SJ"
+        processDebit.state             = "PR"
+        processDebit.zipcode           = "00960"
+        processDebit.trxDescription    = "Pago"
+        processDebit.trxAmount         = "0.1"
+        processDebit.trxOper           = "sale"
+        processDebit.trxID             = "123"
+        processDebit.refNumber         = "123456"
+        processDebit.trxTermID         = " "
+        processDebit.cardNumber        = "930840000000036"
+        processDebit.expDate           = "1249"
+        processDebit.pinblock          = "2846FASDAS44324ASD"
+
+        for(i in 0..2){
+            processDebit.filler[i] = "filler$i"
+        }
+
+        ProcessResponse(processDebit, object : DebitListenerResponse{
+            override fun downloadCompleted(result: String?, response: ResponseDebit?) {
+                Log.d("Result", result);
+                Log.d("Response", response.toString())
+
+            }
+
+        }).execute()
+
+        //CREDIT
+        val processCredit = ProcessCredit_Request()
+        processCredit.username          = "Jesus123"
+        processCredit.password          = "1234"
+        processCredit.accountID         = "001"
+        processCredit.customerName      = "jesus"
+        processCredit.customerEmail     = "test@test.com"
+        processCredit.address1          = "addres1"
+        processCredit.address2          = "addres2"
+        processCredit.city              = "SJ"
+        processCredit.state             = "PR"
+        processCredit.zipcode           = "00960"
+        processCredit.trxDescription    = "Pago"
+        processCredit.trxAmount         = "0.1"
+        processCredit.trxOper           = "sale"
+        processCredit.trxID             = "123"
+        processCredit.refNumber         = "123456"
+        processCredit.trxTermID         = " "
+        processCredit.cardNumber        = "930840000000036"
+        processCredit.expDate           = "1249"
+        processCredit.cvv               = "781"
+        processCredit.trxTipAmount      = ""
+        processCredit.trxTax1           = ""
+        processCredit.trxTax2           = ""
+
+        for(i in 0..2){
+            processCredit.filler[i] = "filler$i"
+        }
+
+
+
+
+        ProcessResponse(processCredit, object : CreditListenerResponse{
+            override fun downloadCompleted(result: String?, response: ResponseCredit?) {
+
+                Log.d("Result", result);
+                Log.d("Response", response.toString())
+
+            }
+
+        }).execute()
     }
 
     //ProcessDebit
