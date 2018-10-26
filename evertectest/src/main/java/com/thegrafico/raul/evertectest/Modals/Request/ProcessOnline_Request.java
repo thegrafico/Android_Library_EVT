@@ -1,6 +1,6 @@
 package com.thegrafico.raul.evertectest.Modals.Request;
 
-public class ProcessOnlineResponse extends ProcessTransactionSearch_Request {
+public class ProcessOnline_Request extends ProcessTransactionSearch_Request {
 
     private String
             paymentMethod       = null,
@@ -9,7 +9,7 @@ public class ProcessOnlineResponse extends ProcessTransactionSearch_Request {
             confNumber          = null,
             filler              = null;
 
-    public ProcessOnlineResponse(){}
+    public ProcessOnline_Request(){}
 
     @Override
     public String toString() {

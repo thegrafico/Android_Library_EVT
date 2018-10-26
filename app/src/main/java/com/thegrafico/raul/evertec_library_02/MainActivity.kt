@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         var btnRequest: Button = findViewById(R.id.vRequest)
 
         btnRequest.setOnClickListener {
-            processACH()
+            processOnlineResponse()
         }
 
     }
@@ -137,6 +137,29 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    //Process Online Response
+    fun processOnlineResponse(){
+        val processOnlineR = ProcessOnline_Request()
+        processOnlineR.username          = "Jesus123"
+        processOnlineR.password          = "1234"
+        processOnlineR.accountID         = "001"
+        processOnlineR.trxDescription    = "Pago"
+        processOnlineR.trxAmount         = "0.1"
+        processOnlineR.trxID             = "123"
+        processOnlineR.paymentMethod     = "addres1"
+        processOnlineR.authNumber        = "city"
+        processOnlineR.confNumber        = "state"
+        processOnlineR.filler            = "00960"
+
+
+        OnlineResp(processOnlineR, object : OnlineListenerResponse{
+            override fun downloadCompleted(result: String?, response: ResponseOnlineResponse?) {
+                Log.d("Result: ", result)
+                Log.d("Response: ", response.toString())
+            }
+        }).execute()
+
+    }
 
     //Process WalletTransaction
     fun processWalletTrans(){
