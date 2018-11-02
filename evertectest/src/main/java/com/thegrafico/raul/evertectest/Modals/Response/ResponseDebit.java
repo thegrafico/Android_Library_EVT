@@ -11,14 +11,7 @@ public class ResponseDebit extends DataResponse {
 
     public ResponseDebit(){}
 
-    @Override
-    public String toString() {
-        return "ResponseProcessDebit{" +
-                "postingdate='" + postingdate + '\'' +
-                ", systemTrace='" + systemTrace + '\'' +
-                ", trxDatetime='" + trxDatetime + '\'' +
-                '}';
-    }
+
 
     public String getPostingdate() {
         return postingdate;
@@ -43,4 +36,14 @@ public class ResponseDebit extends DataResponse {
     public void setTrxDatetime(String trxDatetime) {
         this.trxDatetime = trxDatetime;
     }
+
+    @Override
+    public String toString() {
+        return  super.toString() +
+                ", postingdate='" + postingdate + '\'' +
+                ", systemTrace='" + systemTrace + '\'' +
+                ", trxDatetime='" + trxDatetime + '\'' +
+                '}';
+    }
+
 }

@@ -11,7 +11,7 @@ import java.net.URL;
 
 public class MakeRequest {
 
-   static String URL = "https://private-f2106d-evertec1.apiary-mock.com/questions";
+   static String URL = "http://10.0.2.2:2000/processDebit/";
 
     static public String getDataFromRequest(String dataToMakeRequest){
 

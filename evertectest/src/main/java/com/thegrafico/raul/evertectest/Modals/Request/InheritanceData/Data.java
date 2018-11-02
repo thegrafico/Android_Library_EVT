@@ -54,6 +54,11 @@ public class Data {
     }
 
     public void setUsername(String username) {
+
+        if(username.isEmpty() || username == null){
+            throw new IllegalArgumentException("Username can't be Empty or null");
+        }
+
         this.username = username;
     }
 

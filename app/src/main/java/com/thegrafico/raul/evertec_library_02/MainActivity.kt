@@ -8,6 +8,9 @@ import com.thegrafico.raul.evertectest.ConectorListener.*
 import com.thegrafico.raul.evertectest.Modals.Request.*
 import com.thegrafico.raul.evertectest.Modals.Response.*
 import com.thegrafico.raul.evertectest.Response.*
+import com.thegrafico.raul.evertectest.TESTIN.TestAPI
+import com.thegrafico.raul.evertectest.TESTIN.TestListener
+import com.thegrafico.raul.evertectest.TESTIN.TestRequest
 
 
 class MainActivity : AppCompatActivity() {
@@ -22,6 +25,23 @@ class MainActivity : AppCompatActivity() {
         btnRequest.setOnClickListener {
             generalClass()
         }
+
+    }
+
+    //TESTING
+    fun testing(){
+        var testRequest  = TestRequest()
+        testRequest.nameF = "Testing Request"
+        testRequest.descriptionF = "BLa Bla Bla Bla"
+        testRequest.priceF = "0"
+        testRequest.imageF = "https://images.unsplash.com/photo-1541053476867-b02b2bd8ceeb?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=9499013f4e313fbecc24289ea2b88465&auto=format&fit=crop&w=1350&q=80"
+
+        TestAPI(testRequest,object : TestListener{
+            override fun downloadCompleted(result: String?) {
+                Log.d("Result: ", result)
+            }
+
+        }).execute()
 
     }
 
@@ -61,44 +81,44 @@ class MainActivity : AppCompatActivity() {
 
         }).execute()
 
-        //CREDIT
-        val processCredit = ProcessCredit_Request()
-        processCredit.username          = "Jesus123"
-        processCredit.password          = "1234"
-        processCredit.accountID         = "001"
-        processCredit.customerName      = "jesus"
-        processCredit.customerEmail     = "test@test.com"
-        processCredit.address1          = "addres1"
-        processCredit.address2          = "addres2"
-        processCredit.city              = "SJ"
-        processCredit.state             = "PR"
-        processCredit.zipcode           = "00960"
-        processCredit.trxDescription    = "Pago"
-        processCredit.trxAmount         = "0.1"
-        processCredit.trxOper           = "sale"
-        processCredit.trxID             = "123"
-        processCredit.refNumber         = "123456"
-        processCredit.trxTermID         = " "
-        processCredit.cardNumber        = "930840000000036"
-        processCredit.expDate           = "1249"
-        processCredit.cvv               = "781"
-        processCredit.trxTipAmount      = ""
-        processCredit.trxTax1           = ""
-        processCredit.trxTax2           = ""
-
-        for(i in 0..2){
-            processCredit.filler[i] = "filler$i"
-        }
-
-        ProcessResponse(processCredit, object : CreditListenerResponse{
-            override fun downloadCompleted(result: String?, response: ResponseCredit?) {
-
-                Log.d("Result", result);
-                Log.d("Response", response.toString())
-
-            }
-
-        }).execute()
+//        //CREDIT
+//        val processCredit = ProcessCredit_Request()
+//        processCredit.username          = "Jesus123"
+//        processCredit.password          = "1234"
+//        processCredit.accountID         = "001"
+//        processCredit.customerName      = "jesus"
+//        processCredit.customerEmail     = "test@test.com"
+//        processCredit.address1          = "addres1"
+//        processCredit.address2          = "addres2"
+//        processCredit.city              = "SJ"
+//        processCredit.state             = "PR"
+//        processCredit.zipcode           = "00960"
+//        processCredit.trxDescription    = "Pago"
+//        processCredit.trxAmount         = "0.1"
+//        processCredit.trxOper           = "sale"
+//        processCredit.trxID             = "123"
+//        processCredit.refNumber         = "123456"
+//        processCredit.trxTermID         = " "
+//        processCredit.cardNumber        = "930840000000036"
+//        processCredit.expDate           = "1249"
+//        processCredit.cvv               = "781"
+//        processCredit.trxTipAmount      = ""
+//        processCredit.trxTax1           = ""
+//        processCredit.trxTax2           = ""
+//
+//        for(i in 0..2){
+//            processCredit.filler[i] = "filler$i"
+//        }
+//
+//        ProcessResponse(processCredit, object : CreditListenerResponse{
+//            override fun downloadCompleted(result: String?, response: ResponseCredit?) {
+//
+//                Log.d("Result", result);
+//                Log.d("Response", response.toString())
+//
+//            }
+//
+//        }).execute()
     }
 //
 //    //ProcessDebit

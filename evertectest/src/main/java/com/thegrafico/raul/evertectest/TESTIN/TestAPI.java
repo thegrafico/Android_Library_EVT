@@ -50,7 +50,6 @@ public class TestAPI extends AsyncTask<String, Void, String> {
         testListener = downloadComplete;
     }
 
-
     //---------------Thread background Process-------------------
     @Override
     protected String doInBackground(String... strings) {
