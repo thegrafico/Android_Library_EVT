@@ -46,6 +46,7 @@ public class ProcessResponse extends AsyncTask<String, Void, String> {
     private int count = 0;
     private Gson gson = new Gson();
 
+    //Process Debit
     public ProcessResponse(ProcessDebit_Request request, DebitListenerResponse downloadComplete){
         //COUNT FOR SWITCH
         count = 1;
@@ -56,6 +57,7 @@ public class ProcessResponse extends AsyncTask<String, Void, String> {
         debitListener = downloadComplete;
     }
 
+    //Process Credit
     public ProcessResponse(ProcessCredit_Request request, CreditListenerResponse downloadComplete) {
 
         count = 2;
@@ -63,6 +65,8 @@ public class ProcessResponse extends AsyncTask<String, Void, String> {
         creditListener = downloadComplete;
 
     }
+
+    //Process ACH
     public ProcessResponse(ProcessACH_Request request, ACHResponseListener downloadComplete) {
 
         count = 3;
@@ -71,6 +75,7 @@ public class ProcessResponse extends AsyncTask<String, Void, String> {
 
     }
 
+    //Process WalletTransaction
     public ProcessResponse(ProcessWalletTransaction_Request request, WalletTransactionListenerResponse downloadComplete) {
 
         count = 4;
@@ -79,6 +84,7 @@ public class ProcessResponse extends AsyncTask<String, Void, String> {
 
     }
 
+    //Process CheckoutPayment
     public ProcessResponse(ProcessCheckoutPayment_Request request, CheckoutPaymentListenerResponse downloadComplete) {
 
         count = 5;
@@ -87,6 +93,7 @@ public class ProcessResponse extends AsyncTask<String, Void, String> {
 
     }
 
+    //Process Online
     public ProcessResponse(ProcessOnline_Request request, OnlineListenerResponse downloadComplete) {
 
         count = 6;
@@ -95,6 +102,7 @@ public class ProcessResponse extends AsyncTask<String, Void, String> {
 
     }
 
+    //Process Transaction Search
     public ProcessResponse(ProcessTransactionSearch_Request request, TransactionSearchListenerResponse downloadComplete) {
 
         count = 7;
