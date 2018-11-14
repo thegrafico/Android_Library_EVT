@@ -11,15 +11,13 @@ import java.net.URL;
 
 public class MakeRequest {
 
-   static String URL = "http://10.0.2.2:2000/processDebit/";
-
-    static public String getDataFromRequest(String dataToMakeRequest){
+    static public String getDataFromRequest(String dataToMakeRequest, int choose){
 
         //Object Connection
         HttpURLConnection urlConnection = null;
         try{
 
-            URL url = new URL(URL);
+            URL url = new URL(chooseURL(choose));
 
             //Object Connection
             urlConnection = (HttpURLConnection) url.openConnection();
@@ -76,4 +74,34 @@ public class MakeRequest {
         return null;
     }
 
+    private static String chooseURL(int choose){
+        String URL = " ";
+
+        switch (choose){
+            case 1: //Process Debit Transaction
+                URL = "http://192.168.43.118:2000/processDebit/";
+                break;
+            case 2: //Process Credit Transaction
+                URL = "http://192.168.43.118:2000/processCredit/";
+
+                break;
+            case 3: //Process ACH Transaction
+                URL = "http://192.168.43.118:2000/processACH/";
+                break;
+            case 4: //Process Wallet Transaction Transaction
+                URL = "http://192.168.43.118:2000/processWallet/";
+                break;
+            case 5: //Process Checkout Payment Transaction
+                URL = "http://192.168.43.118:2000/processCheckout/";
+                break;
+            case 6: //Process Online Transaction
+                URL = "http://192.168.43.118:2000/processOnline/";
+                break;
+            case 7: //Process Transaction Search Transaction
+                URL = "http://192.168.43.118:2000/processTransactionSearch/";
+                break;
+        }
+
+        return URL;
+    }
 }

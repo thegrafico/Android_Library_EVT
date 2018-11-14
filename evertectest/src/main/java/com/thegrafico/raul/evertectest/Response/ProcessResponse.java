@@ -118,7 +118,7 @@ public class ProcessResponse extends AsyncTask<String, Void, String> {
     protected String doInBackground(String... strings) {
 
         try{
-            return MakeRequest.getDataFromRequest(gson.toJson(request));
+            return MakeRequest.getDataFromRequest(gson.toJson(request), count);
         }catch (Exception e){
             Log.d("Error", "Download can't be completed\n" + e.getMessage());
         }

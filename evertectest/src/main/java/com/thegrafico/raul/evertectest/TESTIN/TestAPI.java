@@ -55,7 +55,7 @@ public class TestAPI extends AsyncTask<String, Void, String> {
     protected String doInBackground(String... strings) {
 
         try{
-            return MakeRequest.getDataFromRequest(gson.toJson(request));
+            return MakeRequest.getDataFromRequest(gson.toJson(request), 1);
         }catch (Exception e){
             Log.d("Error", "Download can't be completed\n" + e.getMessage());
         }
