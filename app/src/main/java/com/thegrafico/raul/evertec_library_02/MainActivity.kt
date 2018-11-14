@@ -28,22 +28,6 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    //TESTING
-    fun testing(){
-        var testRequest  = TestRequest()
-        testRequest.nameF = "Testing Request"
-        testRequest.descriptionF = "BLa Bla Bla Bla"
-        testRequest.priceF = "0"
-        testRequest.imageF = "https://images.unsplash.com/photo-1541053476867-b02b2bd8ceeb?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=9499013f4e313fbecc24289ea2b88465&auto=format&fit=crop&w=1350&q=80"
-
-        TestAPI(testRequest,object : TestListener{
-            override fun downloadCompleted(result: String?) {
-                Log.d("Result: ", result)
-            }
-
-        }).execute()
-
-    }
 
     //GENERAL CLASS
     fun generalClass(){
@@ -120,6 +104,27 @@ class MainActivity : AppCompatActivity() {
 //
 //        }).execute()
     }
+
+
+
+
+    //TESTING
+    fun testing(){
+        var testRequest  = TestRequest()
+        testRequest.nameF = "Testing Request"
+        testRequest.descriptionF = "BLa Bla Bla Bla"
+        testRequest.priceF = "0"
+        testRequest.imageF = "https://images.unsplash.com/photo-1541053476867-b02b2bd8ceeb?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=9499013f4e313fbecc24289ea2b88465&auto=format&fit=crop&w=1350&q=80"
+
+        TestAPI(testRequest,object : TestListener{
+            override fun downloadCompleted(result: String?) {
+                Log.d("Result: ", result)
+            }
+
+        }).execute()
+
+    }
+
 //
 //    //ProcessDebit
 //    fun processDebit(){
