@@ -16,7 +16,7 @@ private String
 
     @Override
     public String toString() {
-        return "ResponseProcessCredit{" +
+        return  super.toString() + "ResponseProcessCredit{" +
                 "postingdate='" + postingdate + '\'' +
                 ", systemTrace='" + systemTrace + '\'' +
                 ", trxDatetime='" + trxDatetime + '\'' +

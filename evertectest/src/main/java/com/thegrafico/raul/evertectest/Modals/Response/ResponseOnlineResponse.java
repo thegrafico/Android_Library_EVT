@@ -5,7 +5,7 @@ public class ResponseOnlineResponse {
     private String
         code        = null,
         message     = null,
-        requestId   = null;
+        requestID   = null;
 
     public ResponseOnlineResponse(){}
 
@@ -14,7 +14,7 @@ public class ResponseOnlineResponse {
         return "ResponseProcessOnlineResponse{" +
                 "code='" + code + '\'' +
                 ", message='" + message + '\'' +
-                ", requestId='" + requestId + '\'' +
+                ", requestId='" + requestID + '\'' +
                 '}';
     }
 
@@ -35,10 +35,10 @@ public class ResponseOnlineResponse {
     }
 
     public String getRequestId() {
-        return requestId;
+        return requestID;
     }
 
     public void setRequestId(String requestId) {
-        this.requestId = requestId;
+        this.requestID = requestId;
     }
 }

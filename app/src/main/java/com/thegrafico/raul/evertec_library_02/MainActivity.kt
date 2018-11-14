@@ -50,13 +50,12 @@ class MainActivity : AppCompatActivity() {
         //checkoutPayment
         processCheckoutPay()
 
+        //TransactionSearch
         processTransSearch()
     }
 
 
-
-
-
+    //-------------------ALL PROCESS FUNCTION-----------------
     //ProcessDebit
     fun processDebit(){
         val processDebit = ProcessDebit_Request()
@@ -283,6 +282,7 @@ class MainActivity : AppCompatActivity() {
             }
         }).execute()
     }
+    //---------------------------------------------------------
 
     //TESTING to create nodejs element
     fun testing(){

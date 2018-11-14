@@ -7,7 +7,7 @@ public class ResponseDebit extends DataResponse {
     private String
         postingdate     = null,
         systemTrace     = null,
-        trxDatetime     = null;
+        trxDateTime     = null;
 
     public ResponseDebit(){}
 
@@ -30,11 +30,11 @@ public class ResponseDebit extends DataResponse {
     }
 
     public String getTrxDatetime() {
-        return trxDatetime;
+        return trxDateTime;
     }
 
     public void setTrxDatetime(String trxDatetime) {
-        this.trxDatetime = trxDatetime;
+        this.trxDateTime = trxDatetime;
     }
 
     @Override
@@ -42,7 +42,7 @@ public class ResponseDebit extends DataResponse {
         return  super.toString() +
                 ", postingdate='" + postingdate + '\'' +
                 ", systemTrace='" + systemTrace + '\'' +
-                ", trxDatetime='" + trxDatetime + '\'' +
+                ", trxDateTime='" + trxDateTime + '\'' +
                 '}';
     }
 

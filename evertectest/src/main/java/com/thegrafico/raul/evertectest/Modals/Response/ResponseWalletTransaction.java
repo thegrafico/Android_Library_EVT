@@ -5,7 +5,7 @@ public class ResponseWalletTransaction {
 
     private String
             authNumber  = null,
-            bachNumber  = null,
+            batchNumber  = null,
             merchantid  = null,
             postingdate = null,
             rCode       = null,
@@ -31,11 +31,11 @@ public class ResponseWalletTransaction {
     }
 
     public String getBachNumber() {
-        return bachNumber;
+        return batchNumber;
     }
 
     public void setBachNumber(String bachNumber) {
-        this.bachNumber = bachNumber;
+        this.batchNumber = bachNumber;
     }
 
     public String getMerchantid() {
@@ -131,7 +131,7 @@ public class ResponseWalletTransaction {
     public String toString() {
         return "ResponseWalletTransaction{" +
                 "authNumber='" + authNumber + '\'' +
-                ", bachNumber='" + bachNumber + '\'' +
+                ", bachNumber='" + batchNumber + '\'' +
                 ", merchantid='" + merchantid + '\'' +
                 ", postingdate='" + postingdate + '\'' +
                 ", rCode='" + rCode + '\'' +

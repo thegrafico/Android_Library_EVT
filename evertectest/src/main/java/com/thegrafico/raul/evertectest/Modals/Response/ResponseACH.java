@@ -18,7 +18,8 @@ public class ResponseACH extends DataResponse {
 
     @Override
     public String toString() {
-        return "ResponseProcessACH{" +
+        return super.toString() +
+                "ResponseProcessACH{" +
                 "trxOper='" + trxOper + '\'' +
                 '}';
     }
