@@ -42,10 +42,12 @@ public class ProcessResponse extends AsyncTask<String, Void, String> {
     private TransactionSearchListenerResponse transactionListener;
 
 
-    //VARIABLES
+    //Count: use to know what constructor was call.
     private int count = 0;
+    //to convert the Object into a JSON
     private Gson gson = new Gson();
 
+    //--------------------------------CONSTRUCTORS---------------------------------------
     //Process Debit
     public ProcessResponse(ProcessDebit_Request request, DebitListenerResponse downloadComplete){
         //COUNT FOR SWITCH
@@ -110,14 +112,14 @@ public class ProcessResponse extends AsyncTask<String, Void, String> {
         transactionListener = downloadComplete;
 
     }
-
+    //-------------------------------------------------------------------------------------------------
 
 
         //---------------Thread background Process-------------------
     @Override
     protected String doInBackground(String... strings) {
 
-        try{
+        try{ //here the request is start to get the data from a web server
             return MakeRequest.getDataFromRequest(gson.toJson(request), count);
         }catch (Exception e){
             Log.d("Error", "Download can't be completed\n" + e.getMessage());
@@ -128,7 +130,7 @@ public class ProcessResponse extends AsyncTask<String, Void, String> {
     //before download complete
     @Override
     protected void onPostExecute(String s) {
-        try{
+        try{ //execute this function before the download is completed
             chose(count, s);
         }catch (Exception e){
             Log.d("Error", e.getMessage());
@@ -137,34 +139,35 @@ public class ProcessResponse extends AsyncTask<String, Void, String> {
 
     //------------------END Thread Process-----------------------
 
-    //-------------------CHOSE ELEMENT------------------------------
+    //-------------------CHOSE ELEMENT For the Response------------------------------
     private void chose(int count, String s){
+        //with the count we know what constructor was call an then we can choose the response for that constructor
         switch (count){
-            case 1:
+            case 1: //Debit Transaction
                 ResponseDebit resp1 = gson.fromJson(s, ResponseDebit.class);
                 debitListener.downloadCompleted(s, resp1);
                 break;
-            case 2:
+            case 2: //Credit Transaction
                 ResponseCredit resp2 = gson.fromJson(s, ResponseCredit.class);
                 creditListener.downloadCompleted(s, resp2);
                 break;
-            case 3:
+            case 3: //ACH
                 ResponseACH resp3 = gson.fromJson(s, ResponseACH.class);
                 achListener.downloadCompleted(s, resp3);
             break;
-            case 4:
+            case 4: //Wallet Transaction
                 ResponseWalletTransaction resp4 = gson.fromJson(s, ResponseWalletTransaction.class);
                 walletListener.downloadCompleted(s, resp4);
                 break;
-            case 5:
+            case 5: //Checkout Payment
                 ResponseCheckoutPayment resp5 = gson.fromJson(s, ResponseCheckoutPayment.class);
                 checkoutListener.downloadCompleted(s, resp5);
                 break;
-            case 6:
+            case 6: //Online Transaction
                 ResponseOnlineResponse resp6 = gson.fromJson(s, ResponseOnlineResponse.class);
                 onlineListener.downloadCompleted(s, resp6);
                 break;
-            case 7:
+            case 7: //Search Transaction
                 ResponseTransactionSearch resp7 = gson.fromJson(s, ResponseTransactionSearch.class);
                 transactionListener.downloadCompleted(s, resp7);
                 break;
