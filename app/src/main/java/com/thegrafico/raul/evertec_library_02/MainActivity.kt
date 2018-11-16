@@ -8,9 +8,6 @@ import com.thegrafico.raul.evertectest.ConectorListener.*
 import com.thegrafico.raul.evertectest.Modals.Request.*
 import com.thegrafico.raul.evertectest.Modals.Response.*
 import com.thegrafico.raul.evertectest.Response.*
-import com.thegrafico.raul.evertectest.TESTIN.TestAPI
-import com.thegrafico.raul.evertectest.TESTIN.TestListener
-import com.thegrafico.raul.evertectest.TESTIN.TestRequest
 
 
 class MainActivity : AppCompatActivity() {
@@ -219,7 +216,7 @@ class MainActivity : AppCompatActivity() {
         processPW.filler1 = "data"
         processPW.trxOper = "REFUND"
 
-        ProcessResponse(processPW, object : WalletTransactionListenerResponse {
+        ProcessResponse(processPW, object : WalletListenerResponse {
             override fun downloadCompleted(result: String, response: ResponseWalletTransaction?) {
                 Log.d("Result", result);
                 Log.d("Response", response.toString())

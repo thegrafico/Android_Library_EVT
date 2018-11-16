@@ -10,6 +10,7 @@ import com.thegrafico.raul.evertectest.ConectorListener.CreditListenerResponse;
 import com.thegrafico.raul.evertectest.ConectorListener.DebitListenerResponse;
 import com.thegrafico.raul.evertectest.ConectorListener.OnlineListenerResponse;
 import com.thegrafico.raul.evertectest.ConectorListener.TransactionSearchListenerResponse;
+import com.thegrafico.raul.evertectest.ConectorListener.WalletListenerResponse;
 import com.thegrafico.raul.evertectest.ConectorListener.WalletTransactionListenerResponse;
 import com.thegrafico.raul.evertectest.Modals.Request.ProcessACH_Request;
 import com.thegrafico.raul.evertectest.Modals.Request.ProcessCheckoutPayment_Request;
@@ -36,7 +37,7 @@ public class ProcessResponse extends AsyncTask<String, Void, String> {
     private DebitListenerResponse debitListener;
     private CreditListenerResponse creditListener;
     private ACHResponseListener achListener;
-    private WalletTransactionListenerResponse walletListener;
+    private WalletListenerResponse walletListener;
     private CheckoutPaymentListenerResponse checkoutListener;
     private OnlineListenerResponse onlineListener;
     private TransactionSearchListenerResponse transactionListener;
@@ -76,7 +77,7 @@ public class ProcessResponse extends AsyncTask<String, Void, String> {
     }
 
     //Process WalletTransaction
-    public ProcessResponse(ProcessWalletTransaction_Request request, WalletTransactionListenerResponse downloadComplete) {
+    public ProcessResponse(ProcessWalletTransaction_Request request, WalletListenerResponse downloadComplete) {
 
         count = 4;
         this.request = request;
