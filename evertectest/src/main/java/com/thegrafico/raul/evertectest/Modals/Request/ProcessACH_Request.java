@@ -20,18 +20,7 @@ public class ProcessACH_Request extends Data {
         accType         = null;
 
     //constructor
-    public ProcessACH_Request(){}
-
-    //to String to see what the object have
-    @Override
-    public String toString() {
-        return  super.toString() +
-                "ProcessACH{" +
-                "backAccount='" + backAccount + '\'' +
-                ", routing='" + routing + '\'' +
-                ", accType='" + accType + '\'' +
-                '}';
-    }
+    public ProcessACH_Request(){super();}
 
     //---------------------GETTERS and SETTERS---------------------------
     public String getBackAccount() {
