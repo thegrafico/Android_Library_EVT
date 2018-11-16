@@ -1,4 +1,4 @@
-/*Process Response. Here run the process in background to make the request and get the responsegit */
+/*Process Response. Here run the process in background to make the request and get the response*/
 package com.thegrafico.raul.evertectest.Response;
 
 import android.os.AsyncTask;
