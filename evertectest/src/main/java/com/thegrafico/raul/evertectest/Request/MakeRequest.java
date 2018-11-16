@@ -20,9 +20,9 @@ import java.net.URL;
 public class MakeRequest {
 
     /*
-    *static methods to make request: receive 'dataToMakeRequest' and 'choose'
-    * dataToMakeRequest is a Json Object that we send here with data to make the request
-    * choose is an option to know what object was called and set the proper URL where data will be send.
+        *static methods to make request: receive 'dataToMakeRequest' and 'choose'
+        * dataToMakeRequest is a Json Object that we send here with data to make the request
+        * choose is an option to know what object was called and set the proper URL where data will be send.
     */
 
     static public String getDataFromRequest(String dataToMakeRequest, int choose){
