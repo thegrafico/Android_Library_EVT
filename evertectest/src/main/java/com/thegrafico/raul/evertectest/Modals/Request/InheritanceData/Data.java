@@ -2,8 +2,6 @@
 
 package com.thegrafico.raul.evertectest.Modals.Request.InheritanceData;
 
-import java.util.Arrays;
-
 public class Data {
     //Variables
     private String
@@ -27,29 +25,6 @@ public class Data {
     private String filler[] = new String[3];
 
     public Data(){}
-
-    @Override
-    public String toString() {
-        return "Data{" +
-                "username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", trxOper='" + trxOper + '\'' +
-                ", accountID='" + accountID + '\'' +
-                ", customerName='" + customerName + '\'' +
-                ", customerEmail='" + customerEmail + '\'' +
-                ", address1='" + address1 + '\'' +
-                ", address2='" + address2 + '\'' +
-                ", city='" + city + '\'' +
-                ", state='" + state + '\'' +
-                ", zipcode='" + zipcode + '\'' +
-                ", trxID='" + trxID + '\'' +
-                ", refNumber='" + refNumber + '\'' +
-                ", trxDescription='" + trxDescription + '\'' +
-                ", trxAmount='" + trxAmount + '\'' +
-                ", trxTermID='" + trxTermID + '\'' +
-                ", filler=" + Arrays.toString(filler) +
-                '}';
-    }
 
     //----------------------GETTERS AND SETTERS----------------------------
     public String getUsername() {
