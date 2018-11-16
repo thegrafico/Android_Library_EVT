@@ -1,14 +1,35 @@
-package com.thegrafico.raul.evertectest.Modals.Response;
+/*--------------- Checkout Payment  Response -----------------------
 
+   * Here are the variables that we get from the response for Checkout Payment
+   * The listener return this Response object and you can access to the variables from it.
+
+  -----------------------------------------------------------
+*/
+
+package com.thegrafico.raul.evertectest.Modals.Response;
+//class
 public class ResponseCheckoutPayment {
 
+    //Variables Response
     private String
                     rCode = null,
                     rMsg  = null,
                     requestID = null;
 
+    //constructor
     public ResponseCheckoutPayment(){super();}
 
+    //to String to see the data that we get from the response
+    @Override
+    public String toString() {
+        return "ResponseCheckoutPayment{ " +
+                "rCode='" + rCode + '\'' +
+                ", rMsg='" + rMsg + '\'' +
+                ", requestID='" + requestID + '\'' +
+                '}';
+    }
+
+    //-------------------GETTERS and SETTERS----------------
     public String getrCode() {
         return rCode;
     }
@@ -33,12 +54,4 @@ public class ResponseCheckoutPayment {
         this.requestID = requestID;
     }
 
-    @Override
-    public String toString() {
-        return "ResponseCheckoutPayment{" +
-                "rCode='" + rCode + '\'' +
-                ", rMsg='" + rMsg + '\'' +
-                ", requestID='" + requestID + '\'' +
-                '}';
-    }
 }

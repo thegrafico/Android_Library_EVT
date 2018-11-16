@@ -1,7 +1,10 @@
-package com.thegrafico.raul.evertectest.Modals.Response.inheritance;
+/*This is the super constructor, Some classes inheritance from this one.*/
 
+package com.thegrafico.raul.evertectest.Modals.Response.inheritance;
+//class
 public class DataResponse {
 
+    //we get this data from the response and we can use it on all class that inheritance from this one.
     private String
         authNumber      = null,
         batchNumber     = null,
@@ -13,11 +16,13 @@ public class DataResponse {
         trxID           = null,
         trxtype         = null;
 
+    //constructor
     public DataResponse(){}
 
+    //to String to see if we get te data.
     @Override
     public String toString() {
-        return "DataResponse{" +
+        return
                 "authNumber='" + authNumber + '\'' +
                 ", batchNumber='" + batchNumber + '\'' +
                 ", merchantid='" + merchantid + '\'' +
@@ -30,6 +35,7 @@ public class DataResponse {
                 '}';
     }
 
+    //-----------------GETTERS and SETTERS-------------------------
     public String getAuthNumber() {
         return authNumber;
     }

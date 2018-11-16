@@ -1,14 +1,26 @@
+/*--------------- Online Transaction Response -----------------------
+
+   * Here are the variables that we get from the response for Online Transaction
+   * The listener return this Response object and you can access to the variables from it.
+
+  -----------------------------------------------------------
+*/
+
 package com.thegrafico.raul.evertectest.Modals.Response;
 
+//class
 public class ResponseOnlineResponse {
 
+    //variables Response
     private String
         code        = null,
         message     = null,
         requestID   = null;
 
+    //constructor
     public ResponseOnlineResponse(){}
 
+    //To String to see the data we get from the response
     @Override
     public String toString() {
         return "ResponseProcessOnlineResponse{" +
@@ -18,6 +30,7 @@ public class ResponseOnlineResponse {
                 '}';
     }
 
+    //------------------------------GETTERS and SETTERS--------------------------
     public String getCode() {
         return code;
     }

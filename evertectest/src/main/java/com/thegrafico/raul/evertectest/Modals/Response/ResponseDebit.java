@@ -1,18 +1,39 @@
+/*--------------- Debit  Transaction Response -----------------------
+
+   * Here are the variables that we get from the response for Debit Transaction
+   * The listener return this Response object and you can access to the variables from it.
+
+  -----------------------------------------------------------
+*/
+
 package com.thegrafico.raul.evertectest.Modals.Response;
 
 import com.thegrafico.raul.evertectest.Modals.Response.inheritance.DataResponse;
 
+//Extends From Data Response
 public class ResponseDebit extends DataResponse {
 
+    //variables Response
     private String
         postingdate     = null,
         systemTrace     = null,
         trxDateTime     = null;
 
+    //constructor
     public ResponseDebit(){}
 
+    //to String to see the data that we get from the response
+    @Override
+    public String toString() {
+        return   "ResponseProcessDebit{ " +
+                super.toString() + //call the super to get the toString from it
+                ", postingdate='" + postingdate + '\'' +
+                ", systemTrace='" + systemTrace + '\'' +
+                ", trxDateTime='" + trxDateTime + '\'' +
+                '}';
+    }
 
-
+    //-----------------GETTERS and SETTERS-------------------------
     public String getPostingdate() {
         return postingdate;
     }
@@ -37,13 +58,5 @@ public class ResponseDebit extends DataResponse {
         this.trxDateTime = trxDatetime;
     }
 
-    @Override
-    public String toString() {
-        return  super.toString() +
-                ", postingdate='" + postingdate + '\'' +
-                ", systemTrace='" + systemTrace + '\'' +
-                ", trxDateTime='" + trxDateTime + '\'' +
-                '}';
-    }
 
 }

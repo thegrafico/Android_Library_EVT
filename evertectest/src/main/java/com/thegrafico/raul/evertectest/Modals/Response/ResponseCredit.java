@@ -1,22 +1,34 @@
+/*--------------- Credit Transaction Response -----------------------
+
+   * Here are the variables that we get from the response for Credit Transaction
+   * The listener return this Response object and you can access to the variables from it.
+
+  -----------------------------------------------------------
+*/
+
 package com.thegrafico.raul.evertectest.Modals.Response;
 
 import com.thegrafico.raul.evertectest.Modals.Response.inheritance.DataResponse;
 
+//Extends From Data Response Object
 public class ResponseCredit extends DataResponse {
 
-
+//variables Response
 private String
         postingdate     = null,
         systemTrace     = null,
         trxDatetime     = null,
         trxoper         = null;
 
+    //constructor
     public ResponseCredit(){}
 
-
+    //To String to see the data we get from the request
     @Override
     public String toString() {
-        return  super.toString() + "ResponseProcessCredit{" +
+        return  "ResponseProcessCredit{ " +
+                 super.toString() + //call the super.toString to get the data from the inheritance
+                "ResponseProcessCredit{" +
                 "postingdate='" + postingdate + '\'' +
                 ", systemTrace='" + systemTrace + '\'' +
                 ", trxDatetime='" + trxDatetime + '\'' +
@@ -24,6 +36,7 @@ private String
                 '}';
     }
 
+    //-------------------------GETTERS and SETTERS---------------------------------
     public String getPostingdate() {
         return postingdate;
     }

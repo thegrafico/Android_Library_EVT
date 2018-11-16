@@ -1,7 +1,17 @@
+/*--------------- Search Transaction Response -----------------------
+
+   * Here are the variables that we get from the response for Search Transaction
+   * The listener return this Response object and you can access to the variables from it.
+
+  -----------------------------------------------------------
+*/
+
 package com.thegrafico.raul.evertectest.Modals.Response;
 
+//class
 public class ResponseTransactionSearch {
 
+    //Variables Response
     private String
                     authNumber      = null,
                     batchNumber      = null,
@@ -15,11 +25,31 @@ public class ResponseTransactionSearch {
                     trxID           = null,
                     trxoper         = null,
                     trxtype         = null;
-
+    //Constructor
     public ResponseTransactionSearch(){
         super();
     }
 
+    //To String to see the data we get from the response
+    @Override
+    public String toString() {
+        return "ResponseTransactionSearch{" +
+                "authNumber='" + authNumber + '\'' +
+                ", bathNumber='" + batchNumber + '\'' +
+                ", merchantid='" + merchantid + '\'' +
+                ", rCode='" + rCode + '\'' +
+                ", rMsg='" + rMsg + '\'' +
+                ", refNumber='" + refNumber + '\'' +
+                ", resquestID='" + requestID + '\'' +
+                ", statusCode='" + statusCode + '\'' +
+                ", trxDateTime='" + trxDateTime + '\'' +
+                ", trxID='" + trxID + '\'' +
+                ", trxoper='" + trxoper + '\'' +
+                ", trxtype='" + trxtype + '\'' +
+                '}';
+    }
+
+    //------------------------GETTERS and SETTERS----------------------------
     public String getAuthNumber() {
         return authNumber;
     }
@@ -114,23 +144,5 @@ public class ResponseTransactionSearch {
 
     public void setTrxtype(String trxtype) {
         this.trxtype = trxtype;
-    }
-
-    @Override
-    public String toString() {
-        return "ResponseTransactionSearch{" +
-                "authNumber='" + authNumber + '\'' +
-                ", bathNumber='" + batchNumber + '\'' +
-                ", merchantid='" + merchantid + '\'' +
-                ", rCode='" + rCode + '\'' +
-                ", rMsg='" + rMsg + '\'' +
-                ", refNumber='" + refNumber + '\'' +
-                ", resquestID='" + requestID + '\'' +
-                ", statusCode='" + statusCode + '\'' +
-                ", trxDateTime='" + trxDateTime + '\'' +
-                ", trxID='" + trxID + '\'' +
-                ", trxoper='" + trxoper + '\'' +
-                ", trxtype='" + trxtype + '\'' +
-                '}';
     }
 }

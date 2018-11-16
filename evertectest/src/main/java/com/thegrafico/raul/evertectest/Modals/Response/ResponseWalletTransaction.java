@@ -1,8 +1,17 @@
+/*--------------- Wallet Transaction Response -----------------------
+
+   * Here are the variables that we get from the response for Wallet Transaction
+   * The listener return this Response object and you can access to the variables from it.
+
+  -----------------------------------------------------------
+*/
+
 package com.thegrafico.raul.evertectest.Modals.Response;
 
+//class
 public class ResponseWalletTransaction {
 
-
+    //Variables Response
     private String
             authNumber  = null,
             batchNumber  = null,
@@ -18,10 +27,32 @@ public class ResponseWalletTransaction {
             trxoper     = null,
             trxtype     = null;
 
+    //constructor
     public ResponseWalletTransaction(){
         super();
     }
 
+    //To String to see the data we get from the response
+    @Override
+    public String toString() {
+        return "ResponseWalletTransaction{" +
+                "authNumber='" + authNumber + '\'' +
+                ", bachNumber='" + batchNumber + '\'' +
+                ", merchantid='" + merchantid + '\'' +
+                ", postingdate='" + postingdate + '\'' +
+                ", rCode='" + rCode + '\'' +
+                ", rMgs='" + rMsg + '\'' +
+                ", refNumber='" + refNumber + '\'' +
+                ", requestID='" + requestID + '\'' +
+                ", systemTrace='" + systemTrace + '\'' +
+                ", trxDataTime='" + trxDataTime + '\'' +
+                ", trxID='" + trxID + '\'' +
+                ", trxoper='" + trxoper + '\'' +
+                ", trxtype='" + trxtype + '\'' +
+                '}';
+    }
+
+    //------------------------GETTERS and SETTERS----------------------------
     public String getAuthNumber() {
         return authNumber;
     }
@@ -127,23 +158,6 @@ public class ResponseWalletTransaction {
         this.trxtype = trxtype;
     }
 
-    @Override
-    public String toString() {
-        return "ResponseWalletTransaction{" +
-                "authNumber='" + authNumber + '\'' +
-                ", bachNumber='" + batchNumber + '\'' +
-                ", merchantid='" + merchantid + '\'' +
-                ", postingdate='" + postingdate + '\'' +
-                ", rCode='" + rCode + '\'' +
-                ", rMgs='" + rMsg + '\'' +
-                ", refNumber='" + refNumber + '\'' +
-                ", requestID='" + requestID + '\'' +
-                ", systemTrace='" + systemTrace + '\'' +
-                ", trxDataTime='" + trxDataTime + '\'' +
-                ", trxID='" + trxID + '\'' +
-                ", trxoper='" + trxoper + '\'' +
-                ", trxtype='" + trxtype + '\'' +
-                '}';
-    }
+
 
 }
