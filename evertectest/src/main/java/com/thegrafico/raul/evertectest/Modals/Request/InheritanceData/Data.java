@@ -1,3 +1,5 @@
+/*This is the super constructor, Some classes inheritance from this one.*/
+
 package com.thegrafico.raul.evertectest.Modals.Request.InheritanceData;
 
 import java.util.Arrays;
@@ -49,18 +51,16 @@ public class Data {
                 '}';
     }
 
+    //----------------------GETTERS AND SETTERS----------------------------
     public String getUsername() {
         return username;
     }
 
     public void setUsername(String username) {
 
-        if(username.isEmpty() || username == null){
-            throw new IllegalArgumentException("Username can't be Empty or null");
-        }
-
         this.username = username;
     }
+
 
     public String getPassword() {
         return password;

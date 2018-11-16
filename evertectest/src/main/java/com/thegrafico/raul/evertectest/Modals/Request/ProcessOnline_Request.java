@@ -1,7 +1,17 @@
+/*--------------- Online Process Request -----------------------
+
+   * Here are the variables that Online Transaction need to make the request.
+   * You need to use this object to make a request for Online  Process
+
+  -----------------------------------------------------------
+*/
+
 package com.thegrafico.raul.evertectest.Modals.Request;
 
+//extends from ProcessTransactionSearch
 public class ProcessOnline_Request extends ProcessTransactionSearch_Request {
 
+    //variables to make request
     private String
             paymentMethod       = null,
             trxDescription      = null,
@@ -9,19 +19,10 @@ public class ProcessOnline_Request extends ProcessTransactionSearch_Request {
             confNumber          = null,
             filler              = null;
 
+    //constructor
     public ProcessOnline_Request(){}
 
-    @Override
-    public String toString() {
-        return "ProcessOnlineResponse{" +
-                "paymentMethod='" + paymentMethod + '\'' +
-                ", trxDescription='" + trxDescription + '\'' +
-                ", authNumber='" + authNumber + '\'' +
-                ", confNumber='" + confNumber + '\'' +
-                ", filler='" + filler + '\'' +
-                '}';
-    }
-
+    //---------------GETTERS and SETTERS-------------------------
     public String getPaymentMethod() {
         return paymentMethod;
     }

@@ -1,9 +1,19 @@
+/*--------------- Credit Process Request -----------------------
+
+   * Here are the variables that Process Credit needed to make the request.
+   * You need to use this object to make a request for Credit
+
+  -----------------------------------------------------------
+*/
+
 package com.thegrafico.raul.evertectest.Modals.Request;
 
 import com.thegrafico.raul.evertectest.Modals.Request.InheritanceData.Data;
 
+//Extends from Data
 public class ProcessCredit_Request extends Data {
 
+    //Variables to make request
     private String
             cvv             = null,
             trxTipAmount    = null,
@@ -12,8 +22,10 @@ public class ProcessCredit_Request extends Data {
             cardNumber      = null,
             expDate         = null;
 
+    //constructor
    public ProcessCredit_Request(){}
 
+   //--------------------------GETTERS and SETTERS-----------------------------
     public String getCvv() {
         return cvv;
     }

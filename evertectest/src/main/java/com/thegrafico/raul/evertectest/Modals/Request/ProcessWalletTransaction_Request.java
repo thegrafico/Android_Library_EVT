@@ -1,7 +1,16 @@
+/*--------------- Wallet Process Request -----------------------
+
+   * Here are the variables that Wallet Process need to make the request.
+   * You need to use this object to make a request for Wallet Process
+
+  -----------------------------------------------------------
+*/
 package com.thegrafico.raul.evertectest.Modals.Request;
 
+//class
 public class ProcessWalletTransaction_Request {
 
+    //variables to make request
     private String  username        = null,
                     password        = null,
                     accountNumber   = null,
@@ -12,10 +21,10 @@ public class ProcessWalletTransaction_Request {
                     filler1         = null,
                     trxOper         = null;
 
-    public ProcessWalletTransaction_Request(){
-        super();
-    }
+    //constructor
+    public ProcessWalletTransaction_Request(){super();}
 
+    //-----------------------GETTERS and SETTERS---------------------
     public String getUsername() {
         return username;
     }
@@ -87,6 +96,4 @@ public class ProcessWalletTransaction_Request {
     public void setTrxOper(String trxOper) {
         this.trxOper = trxOper;
     }
-
-
 }

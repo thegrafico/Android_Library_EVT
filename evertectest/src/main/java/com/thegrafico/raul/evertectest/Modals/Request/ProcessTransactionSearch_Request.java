@@ -1,7 +1,16 @@
+/*--------------- Search Process Request -----------------------
+
+   * Here are the variables that Search Process need to make the request.
+   * You need to use this object to make a request for Search Process
+
+  -----------------------------------------------------------
+*/
 package com.thegrafico.raul.evertectest.Modals.Request;
 
+//class
 public class ProcessTransactionSearch_Request {
 
+    //variables to make request
     private String
                     username    = null,
                     password    = null,
@@ -9,10 +18,12 @@ public class ProcessTransactionSearch_Request {
                     trxID       = null,
                     trxAmount   = null;
 
+    //constructor
     public ProcessTransactionSearch_Request(){
         super();
     }
 
+    //---------------------GETTERS and SETTERS-----------------------
     public String getUsername() {
         return username;
     }

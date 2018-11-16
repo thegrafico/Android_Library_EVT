@@ -1,9 +1,18 @@
+/*--------------- Checkout Payment Request -----------------------
+
+   * Here are the variables that Checkout Payment need to make the request.
+   * You need to use this object to make a request for Checkout Payment
+
+  ----------------------------------------------------------------
+*/
+
 package com.thegrafico.raul.evertectest.Modals.Request;
 
+//class
 public class ProcessCheckoutPayment_Request {
 
 
-    //Variables
+    //Variables to make request
     private String
                     username        = null,
                     password        = null,
@@ -22,11 +31,14 @@ public class ProcessCheckoutPayment_Request {
                     language        = null,
                     ignoreValues    = null;
 
+    //array to store this data
     private String taxAmount[] = new String [5];
     private String filler[] = new String[3];
 
+    //constructor
     public ProcessCheckoutPayment_Request(){super();}
 
+    //---------------------------------GETTERS and SETTERS--------------------------
     public String getUsername() {
         return username;
     }

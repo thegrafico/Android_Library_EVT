@@ -1,27 +1,39 @@
+/*--------------- ACH Process Request -----------------------
+
+   * Here are the variables that ACH need to make the request.
+   * You need to use this object to make a request for ACH
+
+  -----------------------------------------------------------
+*/
+
 package com.thegrafico.raul.evertectest.Modals.Request;
 
 import com.thegrafico.raul.evertectest.Modals.Request.InheritanceData.Data;
 
+//extends from Data
 public class ProcessACH_Request extends Data {
 
+    //variables to make request
     private String
         backAccount     = null,
         routing         = null,
         accType         = null;
 
+    //constructor
     public ProcessACH_Request(){}
 
-
-    //TODO MEJORAR EL TOSTRING CON EL SUPER
+    //to String to see what the object have
     @Override
     public String toString() {
-        return "ProcessACH{" +
+        return  super.toString() +
+                "ProcessACH{" +
                 "backAccount='" + backAccount + '\'' +
                 ", routing='" + routing + '\'' +
                 ", accType='" + accType + '\'' +
                 '}';
     }
 
+    //---------------------GETTERS and SETTERS---------------------------
     public String getBackAccount() {
         return backAccount;
     }
