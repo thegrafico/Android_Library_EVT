@@ -1,4 +1,14 @@
-/*Process Response. Here run the process in background to make the request and get the response*/
+/*--------------- Process Response -----------------------
+
+   * Here are the logic to make the Request and Get the Response for all the object request tha we has created
+   * This Class is in charge to make the request in a background process.
+   * The request return a response and we send it To onPostExecute
+   * onPostExecute fill the listener Response
+   * The listener response is chosen by a switch with count. count is init with their respective constructor.
+   * We can use the response in the place we want.
+
+  -----------------------------------------------------------
+*/
 package com.thegrafico.raul.evertectest.Response;
 
 import android.os.AsyncTask;
@@ -57,14 +67,18 @@ public class ProcessResponse extends AsyncTask<String, Void, String> {
         this.request = request;
         //responseListener
 
+        //init listener Debit Response
         debitListener = downloadComplete;
     }
 
     //Process Credit
     public ProcessResponse(ProcessCredit_Request request, CreditListenerResponse downloadComplete) {
 
+        //count 2, init the Request and set the URL
         count = 2;
+        //init the request
         this.request = request;
+        //init listener Credit
         creditListener = downloadComplete;
 
     }
@@ -117,6 +131,8 @@ public class ProcessResponse extends AsyncTask<String, Void, String> {
 
 
         //---------------Thread background Process-------------------
+
+    //this function make the request in background, so the main thread is not interrupt
     @Override
     protected String doInBackground(String... strings) {
 
@@ -128,7 +144,7 @@ public class ProcessResponse extends AsyncTask<String, Void, String> {
         return null;
     }
 
-    //before download complete
+    //this function only run once the doInBackground is completed. Here we fill up the Response Listener
     @Override
     protected void onPostExecute(String s) {
         try{ //execute this function before the download is completed
