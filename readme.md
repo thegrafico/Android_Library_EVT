@@ -1,7 +1,3 @@
 # EVT Library
 
-Libreria que simplifica cierto metodos de pago
-
-
-## Nota:
-La documentacion sera agregada Luego
+Click this link https://github.com/thegrafico/AndroidLibray_Evertec to read the Documentation. 
