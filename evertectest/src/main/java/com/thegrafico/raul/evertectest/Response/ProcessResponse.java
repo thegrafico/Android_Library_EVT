@@ -11,7 +11,6 @@ import com.thegrafico.raul.evertectest.ConectorListener.DebitListenerResponse;
 import com.thegrafico.raul.evertectest.ConectorListener.OnlineListenerResponse;
 import com.thegrafico.raul.evertectest.ConectorListener.TransactionSearchListenerResponse;
 import com.thegrafico.raul.evertectest.ConectorListener.WalletListenerResponse;
-import com.thegrafico.raul.evertectest.ConectorListener.WalletTransactionListenerResponse;
 import com.thegrafico.raul.evertectest.Modals.Request.ProcessACH_Request;
 import com.thegrafico.raul.evertectest.Modals.Request.ProcessCheckoutPayment_Request;
 import com.thegrafico.raul.evertectest.Modals.Request.ProcessCredit_Request;
