@@ -28,6 +28,10 @@ public class ProcessDebit_Request extends Data {
     }
 
     public void setCardNumber(String cardNumber) {
+        if (cardNumber.isEmpty() || cardNumber == null || cardNumber.length() < 5){
+            throw new IllegalArgumentException("card Number is wrong");
+        }
+
         this.cardNumber = cardNumber;
     }
 
