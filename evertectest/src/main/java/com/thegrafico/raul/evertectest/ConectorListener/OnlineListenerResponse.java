@@ -1,4 +1,4 @@
-/*Listener to get the response for Online transaction*/
+/*Listener to get the response for Online transaction */
 package com.thegrafico.raul.evertectest.ConectorListener;
 
 import com.thegrafico.raul.evertectest.Modals.Response.ResponseOnlineResponse;

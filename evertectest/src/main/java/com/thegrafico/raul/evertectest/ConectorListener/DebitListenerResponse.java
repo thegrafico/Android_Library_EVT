@@ -1,5 +1,6 @@
-package com.thegrafico.raul.evertectest.ConectorListener;
+/*Listener to get the response for Debit Transaction transaction */
 
+package com.thegrafico.raul.evertectest.ConectorListener;
 
 import com.thegrafico.raul.evertectest.Modals.Response.ResponseDebit;
 
