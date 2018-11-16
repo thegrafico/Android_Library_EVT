@@ -15,6 +15,7 @@ import com.thegrafico.raul.evertectest.Modals.Response.ResponseDebit;
 import com.thegrafico.raul.evertectest.Modals.Response.ResponseWalletTransaction;
 import com.thegrafico.raul.evertectest.Response.ProcessResponse;
 
+//Main activity Similar to MainActivity.kt but this one is for kt
 public class Main2Activity extends AppCompatActivity {
 
     @Override
