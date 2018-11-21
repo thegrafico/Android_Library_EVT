@@ -8,6 +8,9 @@
 
 package com.thegrafico.raul.evertectest.Request;
 
+import com.google.gson.Gson;
+import com.thegrafico.raul.evertectest.Modals.User;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -18,6 +21,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 //class name
 public class MakeRequest {
+
 
     /*
         *static methods to make request: receive 'dataToMakeRequest' and 'choose'
@@ -117,10 +121,19 @@ public class MakeRequest {
             case 7: //Process Transaction Search Transaction
                 URL = "http://192.168.43.118:2000/processTransactionSearch/";
                 break;
+            case 8: //Validate User
+                URL = "http://192.168.43.118:2000/validateUser/";
+                break;
             default:
                 URL = null;
         }
 
         return URL;
+    }
+
+    static public String validateUser(User userData){
+        Gson gson = new Gson();
+
+         return  gson.toJson(userData);
     }
 }

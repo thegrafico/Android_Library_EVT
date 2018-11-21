@@ -1,12 +1,19 @@
 package com.thegrafico.raul.evertec_library_02
 
+import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.design.widget.TextInputEditText
+import android.support.design.widget.TextInputLayout
 import android.util.Log
 import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
 import com.thegrafico.raul.evertectest.ConectorListener.*
 import com.thegrafico.raul.evertectest.Modals.Request.*
 import com.thegrafico.raul.evertectest.Modals.Response.*
+import com.thegrafico.raul.evertectest.Modals.User
+import com.thegrafico.raul.evertectest.Request.MakeRequest
 import com.thegrafico.raul.evertectest.Response.*
 
 
@@ -17,11 +24,33 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        var btnRequest: Button = findViewById(R.id.signBtn)
+        var singBTN: Button = findViewById(R.id.signBtn)
 
-        btnRequest.setOnClickListener {
-            generalClass()
+        var loginBTN: Button = findViewById(R.id.loginBtn)
+
+        var username_emailET: TextInputEditText = findViewById(R.id.email_username)
+        var passET: EditText = findViewById(R.id.password)
+
+        //login
+        loginBTN.setOnClickListener {
+            if(username_emailET.text.isNullOrEmpty() || username_emailET.text!!.length < 5){
+                Toast.makeText(this, "Invalid username", Toast.LENGTH_SHORT).show()
+            }else{
+               var user = User()
+                user.username = username_emailET.text.toString()
+                user.pass = passET.text.toString()
+
+                Toast.makeText(this, MakeRequest.validateUser(user), Toast.LENGTH_LONG).show()
+            }
         }
+
+        //SiGN up
+        singBTN.setOnClickListener {
+
+        }
+
+
+
 
     }
 
