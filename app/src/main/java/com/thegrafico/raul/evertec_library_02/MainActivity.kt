@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        var btnRequest: Button = findViewById(R.id.vRequest)
+        var btnRequest: Button = findViewById(R.id.signBtn)
 
         btnRequest.setOnClickListener {
             generalClass()
