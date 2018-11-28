@@ -122,7 +122,7 @@ public class MakeRequest {
                 URL = "http://192.168.43.118:2000/processTransactionSearch/";
                 break;
             case 8: //Validate User
-                URL = "http://192.168.43.118:2000/validateUser/";
+                URL = "http://192.168.43.118:2000/userValidation/";
                 break;
             default:
                 URL = null;
@@ -131,9 +131,4 @@ public class MakeRequest {
         return URL;
     }
 
-    static public String validateUser(User userData){
-        Gson gson = new Gson();
-
-         return  gson.toJson(userData);
-    }
 }

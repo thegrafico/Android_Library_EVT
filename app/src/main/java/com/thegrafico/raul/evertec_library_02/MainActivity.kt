@@ -1,10 +1,10 @@
 package com.thegrafico.raul.evertec_library_02
 
-import android.graphics.Color
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.AlarmClock.EXTRA_MESSAGE
 import android.support.design.widget.TextInputEditText
-import android.support.design.widget.TextInputLayout
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
@@ -13,7 +13,6 @@ import com.thegrafico.raul.evertectest.ConectorListener.*
 import com.thegrafico.raul.evertectest.Modals.Request.*
 import com.thegrafico.raul.evertectest.Modals.Response.*
 import com.thegrafico.raul.evertectest.Modals.User
-import com.thegrafico.raul.evertectest.Request.MakeRequest
 import com.thegrafico.raul.evertectest.Response.*
 
 
@@ -23,6 +22,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+
+        val intent = Intent(this, Main2Activity::class.java)
+        val message = "hola"
 
         var singBTN: Button = findViewById(R.id.signBtn)
 
@@ -40,7 +43,17 @@ class MainActivity : AppCompatActivity() {
                 user.username = username_emailET.text.toString()
                 user.pass = passET.text.toString()
 
-                Toast.makeText(this, MakeRequest.validateUser(user), Toast.LENGTH_LONG).show()
+                var response: String = ""
+                //here we get the response
+                ProcessResponse(user, object : UserListener{
+                    override fun downloadCompleted(result: String) {
+                        if(result.equals("1")){
+                            intent.putExtra(EXTRA_MESSAGE, result)
+                            startActivityForResult(intent, 1)
+                        }
+                    }
+                }).execute()
+
             }
         }
 

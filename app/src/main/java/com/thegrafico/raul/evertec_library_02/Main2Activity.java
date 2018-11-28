@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
+import android.widget.Toolbar;
 
 import com.thegrafico.raul.evertectest.ConectorListener.DebitListenerResponse;
 import com.thegrafico.raul.evertectest.ConectorListener.WalletListenerResponse;
@@ -15,8 +17,14 @@ import com.thegrafico.raul.evertectest.Modals.Response.ResponseDebit;
 import com.thegrafico.raul.evertectest.Modals.Response.ResponseWalletTransaction;
 import com.thegrafico.raul.evertectest.Response.ProcessResponse;
 
+import java.util.ArrayList;
+import java.util.List;
+
 //Main activity Similar to MainActivity.kt but this one is for kt
 public class Main2Activity extends AppCompatActivity {
+
+    List<homeItems> itemsList;
+    ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,14 +32,16 @@ public class Main2Activity extends AppCompatActivity {
         setContentView(R.layout.activity_main2);
 
 
-        final Button button = findViewById(R.id.button2);
-        button.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                processDebit();
-            }
-        });
+        itemsList = new ArrayList<>();
 
+        itemsList.add(new homeItems(R.drawable.reloj, "Price: $300.00", "luxury watch for any occasion"));
+        itemsList.add(new homeItems(R.drawable.laptop, "Price: $799.99", "2019 Newest Flagship HP. 1TB Memory, 16GB Ram"));
 
+        listView = findViewById(R.id.listview);
+
+        homeAdapter adapter = new homeAdapter(this, R.layout.homepage, itemsList);
+
+        listView.setAdapter(adapter);
     }
 
     private void processDebit(){

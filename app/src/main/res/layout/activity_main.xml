@@ -48,7 +48,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:text="ATH Wallet"
+        android:text="Demo Transaction"
         android:textAllCaps="true"
         android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
