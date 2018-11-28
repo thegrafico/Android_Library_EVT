@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PayActivity">
+
+    <include layout="@layout/toolbar"
+        android:id="@+id/navBar"/>
+
+    <ImageView
+        android:id="@+id/imageViewpay"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="150dp"
+        android:padding="20dp" />
+
+
+    <TextView
+        android:id="@+id/textviewNamePay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="1dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginTop="150dp"
+        android:layout_toEndOf="@+id/imageViewpay"
+        android:layout_toRightOf="@+id/imageViewpay"
+        android:text="Checkout Payment"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textViewDescriptionpay"
+        android:layout_width="184dp"
+        android:layout_height="180dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="170dp"
+        android:layout_toEndOf="@+id/imageViewpay"
+        android:layout_toRightOf="@+id/imageViewpay"
+        android:text="Description" />
+
+    <Button
+        android:id="@+id/btnPay"
+        android:layout_width="123dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="280dp"
+        android:layout_toEndOf="@+id/imageViewpay"
+        android:layout_toRightOf="@+id/imageViewpay"
+        android:text="Pay Now" />
+
+    <ImageView
+        android:id="@+id/imageViewchecked"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="380dp"
+        android:padding="20dp"
+        tools:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="158dp"
+        android:text=""
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+</RelativeLayout>
