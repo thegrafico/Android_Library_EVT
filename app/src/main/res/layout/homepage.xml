@@ -53,4 +53,14 @@
         android:layout_toRightOf="@+id/imageView"
         android:text="Buy Now" />
 
+    <TextView
+        android:id="@+id/AccNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/btndelete"
+        android:layout_alignLeft="@+id/btndelete"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="181dp"
+        android:text="Acc Number" />
+
 </RelativeLayout>

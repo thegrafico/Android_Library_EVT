@@ -23,6 +23,7 @@ public class homeAdapter extends ArrayAdapter<homeItems> {
     static String PRICE = "price";
     static String DESCP = "descri";
     static String RESOURSER = "resourse";
+    static  String ACCNUMBER = "accNumber";
 
     Intent intent;
     public homeAdapter(Context context, int resource, List<homeItems> itemsHome){
@@ -43,6 +44,8 @@ public class homeAdapter extends ArrayAdapter<homeItems> {
 
         TextView textViewDescrip = view.findViewById(R.id.textViewDescription);
 
+        TextView accNumberView = view.findViewById(R.id.accountNumber);
+
         ImageView imgView = view.findViewById(R.id.imageView);
 
         //getting the item
@@ -50,6 +53,7 @@ public class homeAdapter extends ArrayAdapter<homeItems> {
 
         textViewname.setText(items.getName());
         textViewDescrip.setText(items.getDescription());
+        accNumberView.setText(items.getAccNumber());
         imgView.setImageDrawable(context.getResources().getDrawable(items.getImage()));
 
         view.findViewById(R.id.btndelete).setOnClickListener(new View.OnClickListener() {
@@ -67,8 +71,9 @@ public class homeAdapter extends ArrayAdapter<homeItems> {
         intent.putExtra(PRICE, itemsHome.get(i).name);
         intent.putExtra(DESCP, itemsHome.get(i).getDescription());
         intent.putExtra(RESOURSER, itemsHome.get(i).getImage());
+        intent.putExtra(ACCNUMBER, itemsHome.get(i).getAccNumber());
 
-        Toast.makeText(context, "Press: " + itemsHome.get(i).name, Toast.LENGTH_LONG).show();
+        Toast.makeText(context, "Press: " + itemsHome.get(i).getDescription(), Toast.LENGTH_LONG).show();
         context.startActivity(intent);
 
     }

@@ -9,6 +9,7 @@ import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import com.thegrafico.raul.evertec_library_02.RegisterNewUser.RegisterUserActivity
 import com.thegrafico.raul.evertectest.ConectorListener.*
 import com.thegrafico.raul.evertectest.Modals.Request.*
 import com.thegrafico.raul.evertectest.Modals.Response.*
@@ -23,8 +24,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val loginIntent = Intent(this, Main2Activity::class.java)
 
-        val intent = Intent(this, Main2Activity::class.java)
+        val signUpIntent= Intent(this, RegisterUserActivity::class.java)
+
         val message = "hola"
 
         var singBTN: Button = findViewById(R.id.signBtn)
@@ -36,9 +39,7 @@ class MainActivity : AppCompatActivity() {
 
         //login
         loginBTN.setOnClickListener {
-            if(username_emailET.text.isNullOrEmpty() || username_emailET.text!!.length < 5){
-                Toast.makeText(this, "Invalid username", Toast.LENGTH_SHORT).show()
-            }else{
+
                var user = User()
                 user.username = username_emailET.text.toString()
                 user.pass = passET.text.toString()
@@ -47,26 +48,20 @@ class MainActivity : AppCompatActivity() {
                 //here we get the response
                 ProcessResponse(user, object : UserListener{
                     override fun downloadCompleted(result: String) {
-                        if(result.equals("1")){
-                            intent.putExtra(EXTRA_MESSAGE, result)
-                            startActivityForResult(intent, 1)
+                        if(result.equals("123456789")){
+                            loginIntent.putExtra(EXTRA_MESSAGE, result)
+                            startActivityForResult(loginIntent, 1)
                         }
                     }
                 }).execute()
-
-            }
         }
 
         //SiGN up
         singBTN.setOnClickListener {
-
+            startActivityForResult(signUpIntent,1)
         }
 
-
-
-
     }
-
 
     //GENERAL CLASS
     fun generalClass(){
@@ -264,8 +259,6 @@ class MainActivity : AppCompatActivity() {
                 Log.d("Response", response.toString())
             }
         }).execute()
-
-
     }
 
     //Process CheckoutPayment
