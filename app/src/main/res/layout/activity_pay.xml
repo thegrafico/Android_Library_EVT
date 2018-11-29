@@ -78,4 +78,16 @@
         android:textSize="18sp"
         android:textStyle="bold" />
 
+    <TextView
+        android:id="@+id/AccNumberPay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/btnPay"
+        android:layout_alignLeft="@+id/btnPay"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="255dp"
+        android:text="Acc Number" />
+
 </RelativeLayout>

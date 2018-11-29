@@ -7,6 +7,8 @@
 */
 package com.thegrafico.raul.evertectest.Modals.Request;
 
+import java.io.Serializable;
+
 //class
 public class ProcessWalletTransaction_Request {
 

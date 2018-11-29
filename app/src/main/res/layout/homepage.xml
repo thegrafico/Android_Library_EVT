@@ -54,7 +54,7 @@
         android:text="Buy Now" />
 
     <TextView
-        android:id="@+id/AccNumber"
+        android:id="@+id/accNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/btndelete"

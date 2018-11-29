@@ -19,50 +19,44 @@ import com.thegrafico.raul.evertectest.Response.*
 
 class MainActivity : AppCompatActivity() {
 
+    val PROCESS_TRANSACTION: String = "transaction"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        //intent for activities
         val loginIntent = Intent(this, Main2Activity::class.java)
-
         val signUpIntent= Intent(this, RegisterUserActivity::class.java)
-
-        val message = "hola"
-
+        //Buttons
         var singBTN: Button = findViewById(R.id.signBtn)
-
         var loginBTN: Button = findViewById(R.id.loginBtn)
-
+        //to get the data from user
         var username_emailET: TextInputEditText = findViewById(R.id.email_username)
         var passET: EditText = findViewById(R.id.password)
 
-        //login
+        //==============================LOGIN BTN=====================================
         loginBTN.setOnClickListener {
 
-               var user = User()
-                user.username = username_emailET.text.toString()
-                user.pass = passET.text.toString()
+            // ========================LOGIC============================
+            //we get the data on the firts parameter, the second paramenter is the response listener
+            ProcessResponse(processTransSearch(), object : TransactionSearchListenerResponse {
+                override fun downloadCompleted(result: String, response: ResponseTransactionSearch?) {
+                    Log.d("Response", response.toString())
 
-                var response: String = ""
-                //here we get the response
-                ProcessResponse(user, object : UserListener{
-                    override fun downloadCompleted(result: String) {
-                        if(result.equals("123456789")){
-                            loginIntent.putExtra(EXTRA_MESSAGE, result)
-                            startActivityForResult(loginIntent, 1)
-                        }
-                    }
-                }).execute()
+                    loginIntent.putExtra(PROCESS_TRANSACTION, response)
+                }
+            }).execute()
+          // =======================================================
         }
 
-        //SiGN up
+        //====================SiGN up BUTTOn=================
         singBTN.setOnClickListener {
             startActivityForResult(signUpIntent,1)
         }
 
     }
-
+    //-------------------ALL PROCESS FUNCTION-----------------
     //GENERAL CLASS
     fun generalClass(){
 
@@ -88,8 +82,6 @@ class MainActivity : AppCompatActivity() {
         processTransSearch()
     }
 
-
-    //-------------------ALL PROCESS FUNCTION-----------------
     //ProcessDebit
     fun processDebit(){
         val processDebit = ProcessDebit_Request()
@@ -241,6 +233,7 @@ class MainActivity : AppCompatActivity() {
 
     //Process WalletTransaction
     fun processWalletTrans(){
+
         val processPW = ProcessWalletTransaction_Request()
         processPW.username = "Pedrito"
         processPW.password = "1234"
@@ -253,12 +246,14 @@ class MainActivity : AppCompatActivity() {
         processPW.filler1 = "data"
         processPW.trxOper = "REFUND"
 
+
         ProcessResponse(processPW, object : WalletListenerResponse {
             override fun downloadCompleted(result: String, response: ResponseWalletTransaction?) {
                 Log.d("Result", result);
                 Log.d("Response", response.toString())
             }
         }).execute()
+
     }
 
     //Process CheckoutPayment
@@ -298,7 +293,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     //Process TransactionSearch
-    fun processTransSearch(){
+    fun processTransSearch(): ProcessTransactionSearch_Request{
         val transactionSearch = ProcessTransactionSearch_Request()
         transactionSearch.username          = "Jesus123"
         transactionSearch.password          = "1234"
@@ -306,14 +301,15 @@ class MainActivity : AppCompatActivity() {
         transactionSearch.trxID             = "123456"
         transactionSearch.trxAmount         = "0.1"
 
-
-        ProcessResponse(transactionSearch, object : TransactionSearchListenerResponse {
-            override fun downloadCompleted(result: String, response: ResponseTransactionSearch?) {
-                Log.d("Result", result);
-                Log.d("Response", response.toString())
-            }
-        }).execute()
+//          //Lo comento aqui porque lo uso arriba
+//        ProcessResponse(transactionSearch, object : TransactionSearchListenerResponse {
+//            override fun downloadCompleted(result: String, response: ResponseTransactionSearch?) {
+//                Log.d("Result", result);
+//                Log.d("Response", response.toString())
+//            }
+//        }).execute()
+//
+        return transactionSearch
     }
     //---------------------------------------------------------
-
 }

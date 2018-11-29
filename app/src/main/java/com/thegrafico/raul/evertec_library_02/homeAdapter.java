@@ -44,7 +44,7 @@ public class homeAdapter extends ArrayAdapter<homeItems> {
 
         TextView textViewDescrip = view.findViewById(R.id.textViewDescription);
 
-        TextView accNumberView = view.findViewById(R.id.accountNumber);
+        TextView accNumberView = view.findViewById(R.id.accNumber);
 
         ImageView imgView = view.findViewById(R.id.imageView);
 
