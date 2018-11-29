@@ -3,17 +3,13 @@ package com.thegrafico.raul.evertec_library_02
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.AlarmClock.EXTRA_MESSAGE
-import android.support.design.widget.TextInputEditText
 import android.util.Log
 import android.widget.Button
-import android.widget.EditText
 import android.widget.Toast
 import com.thegrafico.raul.evertec_library_02.RegisterNewUser.RegisterUserActivity
 import com.thegrafico.raul.evertectest.ConectorListener.*
 import com.thegrafico.raul.evertectest.Modals.Request.*
 import com.thegrafico.raul.evertectest.Modals.Response.*
-import com.thegrafico.raul.evertectest.Modals.User
 import com.thegrafico.raul.evertectest.Response.*
 
 
@@ -29,23 +25,24 @@ class MainActivity : AppCompatActivity() {
         val loginIntent = Intent(this, Main2Activity::class.java)
         val signUpIntent= Intent(this, RegisterUserActivity::class.java)
         //Buttons
-        var singBTN: Button = findViewById(R.id.signBtn)
-        var loginBTN: Button = findViewById(R.id.loginBtn)
+        val singBTN: Button = findViewById(R.id.signBtn)
+        val loginBTN: Button = findViewById(R.id.loginBtn)
         //to get the data from user
-        var username_emailET: TextInputEditText = findViewById(R.id.email_username)
-        var passET: EditText = findViewById(R.id.password)
+//        var username_emailET: TextInputEditText = findViewById(R.id.email_username)
+//        var passET: EditText = findViewById(R.id.password)
 
         //==============================LOGIN BTN=====================================
         loginBTN.setOnClickListener {
 
             // ========================LOGIC============================
             //we get the data on the firts parameter, the second paramenter is the response listener
-            ProcessResponse(processTransSearch(), object : TransactionSearchListenerResponse {
-                override fun downloadCompleted(result: String, response: ResponseTransactionSearch?) {
-                    Log.d("Response", response.toString())
-
-                    loginIntent.putExtra(PROCESS_TRANSACTION, response)
-                }
+            ProcessResponse(processTransSearch(), TransactionSearchListenerResponse { result, response ->
+                loginIntent.putExtra(PROCESS_TRANSACTION, response)
+                loginIntent.putExtra("ACCNUMBER",processTransSearch().accountID)
+                if(response!!.responseValidated == "TRUE")
+                    startActivity(loginIntent)
+                else
+                    Toast.makeText(applicationContext, "User not register", Toast.LENGTH_SHORT).show()
             }).execute()
           // =======================================================
         }
@@ -83,7 +80,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     //ProcessDebit
-    fun processDebit(){
+    private fun processDebit(){
         val processDebit = ProcessDebit_Request()
         processDebit.username          = "Jesus123"
         processDebit.password          = "1234"
@@ -122,7 +119,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     //ProcessCredit
-    fun processCredit(){
+    private fun processCredit(){
         //----------------------CREDIT Request------------------------
 
         val processCredit = ProcessCredit_Request()
@@ -167,7 +164,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     //ProcessACH
-    fun processACH(){
+    private fun processACH(){
         val processACH = ProcessACH_Request()
         processACH.username          = "Jesus123"
         processACH.password          = "1234"
@@ -208,7 +205,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     //Process Online Response
-    fun processOnlineResponse(){
+    private fun processOnlineResponse(){
         val processOnlineR = ProcessOnline_Request()
         processOnlineR.username          = "Jesus123"
         processOnlineR.password          = "1234"
@@ -232,7 +229,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     //Process WalletTransaction
-    fun processWalletTrans(){
+    private fun processWalletTrans(){
 
         val processPW = ProcessWalletTransaction_Request()
         processPW.username = "Pedrito"
@@ -257,7 +254,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     //Process CheckoutPayment
-    fun processCheckoutPay(){
+    private fun processCheckoutPay(){
         val checkoutPayment = ProcessCheckoutPayment_Request()
         checkoutPayment.username          = "Jesus123"
         checkoutPayment.password          = "1234"
@@ -293,11 +290,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     //Process TransactionSearch
-    fun processTransSearch(): ProcessTransactionSearch_Request{
+    private fun processTransSearch(): ProcessTransactionSearch_Request{
         val transactionSearch = ProcessTransactionSearch_Request()
         transactionSearch.username          = "Jesus123"
         transactionSearch.password          = "1234"
-        transactionSearch.accountID         = "123456"
+        transactionSearch.accountID         = "3456"
         transactionSearch.trxID             = "123456"
         transactionSearch.trxAmount         = "0.1"
 

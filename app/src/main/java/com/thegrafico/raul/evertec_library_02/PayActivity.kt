@@ -13,11 +13,11 @@ class PayActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pay)
 
-
         //resourse Data
         val intent = intent
         val price: String = intent.getStringExtra(homeAdapter.PRICE)
         val desc: String = intent.getStringExtra(homeAdapter.DESCP)
+        val accN: String = intent.getStringExtra(homeAdapter.ACCNUMBER)
 
         var bundle: Bundle = getIntent().extras
 
@@ -36,10 +36,17 @@ class PayActivity : AppCompatActivity() {
         val description = findViewById<TextView>(R.id.textViewDescriptionpay)
         description.text = desc
 
-        val imgViewCheck = findViewById<ImageView>(R.id.imageViewchecked)
-        val textComplete = findViewById<TextView>(R.id.textView4)
-        val btn = findViewById<Button>(R.id.btnPay)
+        //accNumber - here is hardcode because we see in the main activity and main2activity how to pass data
+        val accNumber = findViewById<TextView>(R.id.AccNumberPay)
+        accNumber.text = accN
 
+        //image view check
+        val imgViewCheck = findViewById<ImageView>(R.id.imageViewchecked)
+        //text for complete
+        val textComplete = findViewById<TextView>(R.id.textView4)
+
+
+        val btn = findViewById<Button>(R.id.btnPay)
         btn.setOnClickListener {
             v ->
             btn.text = "Go Back"

@@ -8,9 +8,6 @@
 
 package com.thegrafico.raul.evertectest.Request;
 
-import com.google.gson.Gson;
-import com.thegrafico.raul.evertectest.Modals.User;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -120,9 +117,6 @@ public class MakeRequest {
                 break;
             case 7: //Process Transaction Search Transaction
                 URL = "http://192.168.43.118:2000/processTransactionSearch/";
-                break;
-            case 8: //Validate User
-                URL = "http://192.168.43.118:2000/userValidation/";
                 break;
             default:
                 URL = null;

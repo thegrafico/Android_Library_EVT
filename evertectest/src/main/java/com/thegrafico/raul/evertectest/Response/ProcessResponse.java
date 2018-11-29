@@ -21,7 +21,6 @@ import com.thegrafico.raul.evertectest.ConectorListener.CreditListenerResponse;
 import com.thegrafico.raul.evertectest.ConectorListener.DebitListenerResponse;
 import com.thegrafico.raul.evertectest.ConectorListener.OnlineListenerResponse;
 import com.thegrafico.raul.evertectest.ConectorListener.TransactionSearchListenerResponse;
-import com.thegrafico.raul.evertectest.ConectorListener.UserListener;
 import com.thegrafico.raul.evertectest.ConectorListener.WalletListenerResponse;
 import com.thegrafico.raul.evertectest.Modals.Request.ProcessACH_Request;
 import com.thegrafico.raul.evertectest.Modals.Request.ProcessCheckoutPayment_Request;
@@ -37,7 +36,6 @@ import com.thegrafico.raul.evertectest.Modals.Response.ResponseDebit;
 import com.thegrafico.raul.evertectest.Modals.Response.ResponseOnlineResponse;
 import com.thegrafico.raul.evertectest.Modals.Response.ResponseTransactionSearch;
 import com.thegrafico.raul.evertectest.Modals.Response.ResponseWalletTransaction;
-import com.thegrafico.raul.evertectest.Modals.User;
 import com.thegrafico.raul.evertectest.Request.MakeRequest;
 
 public class ProcessResponse extends AsyncTask<String, Void, String> {
@@ -53,8 +51,6 @@ public class ProcessResponse extends AsyncTask<String, Void, String> {
     private CheckoutPaymentListenerResponse checkoutListener;
     private OnlineListenerResponse onlineListener;
     private TransactionSearchListenerResponse transactionListener;
-    private UserListener uListener;
-
 
     //Count: use to know what constructor was call.
     private int count = 0;
@@ -131,11 +127,6 @@ public class ProcessResponse extends AsyncTask<String, Void, String> {
 
     }
 
-    public ProcessResponse(User request, UserListener uListerner) {
-        count = 8;
-        this.request = request;
-        this.uListener = uListerner;
-    }
 
     //-------------------------------------------------------------------------------------------------
 
@@ -197,9 +188,6 @@ public class ProcessResponse extends AsyncTask<String, Void, String> {
             case 7: //Search Transaction
                 ResponseTransactionSearch resp7 = gson.fromJson(s, ResponseTransactionSearch.class);
                 transactionListener.downloadCompleted(s, resp7);
-                break;
-            case 8: //User validation
-                uListener.downloadCompleted(s);
                 break;
         }
     }
