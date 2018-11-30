@@ -6,6 +6,8 @@ import android.view.View
 import android.widget.*
 import com.thegrafico.raul.evertec_library_02.adapter.homeAdapter
 
+/*3er Activity*/
+
 class PayActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
