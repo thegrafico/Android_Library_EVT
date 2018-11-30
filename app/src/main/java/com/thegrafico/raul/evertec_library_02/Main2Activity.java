@@ -1,14 +1,14 @@
 package com.thegrafico.raul.evertec_library_02;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.thegrafico.raul.evertec_library_02.adapter.homeAdapter;
+import com.thegrafico.raul.evertec_library_02.adapter.homeItems;
 import com.thegrafico.raul.evertectest.Modals.Response.ResponseTransactionSearch;
 
 import java.util.ArrayList;
