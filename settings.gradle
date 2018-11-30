@@ -1,1 +1,1 @@
-include ':app', ':evertectest'
+include ':app', ':evt-payment-service'

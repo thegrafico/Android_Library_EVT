@@ -4,7 +4,7 @@ package com.thegrafico.raul.evertectest.Modals.Response.inheritance;
 
 import java.io.Serializable;
 
-//class
+//Implements Serializable for passing data via Intent in  easy and fast way
 public class DataResponse implements Serializable {
 
     //we get this data from the response and we can use it on all class that inheritance from this one.
