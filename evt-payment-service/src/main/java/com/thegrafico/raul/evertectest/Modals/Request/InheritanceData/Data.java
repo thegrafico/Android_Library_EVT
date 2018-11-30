@@ -3,6 +3,7 @@
 package com.thegrafico.raul.evertectest.Modals.Request.InheritanceData;
 
 public class Data {
+
     //Variables
     private String
             username        = null,
