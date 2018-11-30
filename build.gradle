@@ -35,7 +35,6 @@ task clean(type: Delete) {
 }
 
 ext{
-
     //Info About library
     libVersionCode = 1
     libVersionName = "1.0.0"
