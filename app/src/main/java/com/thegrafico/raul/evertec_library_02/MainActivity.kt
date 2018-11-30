@@ -10,7 +10,6 @@ import com.thegrafico.raul.evertec_library_02.RegisterNewUser.RegisterUserActivi
 import com.thegrafico.raul.evertectest.ConectorListener.*
 import com.thegrafico.raul.evertectest.Modals.Request.*
 import com.thegrafico.raul.evertectest.Modals.Response.*
-import com.thegrafico.raul.evertectest.Request.MakeRequest
 import com.thegrafico.raul.evertectest.Response.*
 
 
@@ -24,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         //intent for activities
-        val loginIntent = Intent(this, Main2Activity::class.java)
+        val loginIntent = Intent(this, ItemActivity::class.java)
         val signUpIntent= Intent(this, RegisterUserActivity::class.java)
 
         //Buttons

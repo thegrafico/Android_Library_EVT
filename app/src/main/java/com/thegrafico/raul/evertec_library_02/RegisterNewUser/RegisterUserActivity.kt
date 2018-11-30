@@ -4,17 +4,12 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.TextInputEditText
-import android.util.Log
 import android.widget.Button
 import android.widget.Toast
-import com.thegrafico.raul.evertec_library_02.Main2Activity
+import com.thegrafico.raul.evertec_library_02.ItemActivity
 import com.thegrafico.raul.evertec_library_02.R
 import com.thegrafico.raul.evertectest.ConectorListener.TransactionSearchListenerResponse
-import com.thegrafico.raul.evertectest.ConectorListener.WalletListenerResponse
 import com.thegrafico.raul.evertectest.Modals.Request.ProcessTransactionSearch_Request
-import com.thegrafico.raul.evertectest.Modals.Request.ProcessWalletTransaction_Request
-import com.thegrafico.raul.evertectest.Modals.Response.ResponseTransactionSearch
-import com.thegrafico.raul.evertectest.Modals.Response.ResponseWalletTransaction
 import com.thegrafico.raul.evertectest.Response.ProcessResponse
 
 class RegisterUserActivity : AppCompatActivity() {
@@ -24,7 +19,7 @@ class RegisterUserActivity : AppCompatActivity() {
         setContentView(R.layout.activity_register_user)
 
 
-        val signUp = Intent(this, Main2Activity::class.java)
+        val signUp = Intent(this, ItemActivity::class.java)
 
         var fullName: TextInputEditText = findViewById(R.id.fullName)
         var userName: TextInputEditText = findViewById(R.id.userName)

@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 //Main activity Similar to MainActivity.kt but this one is for kt
-public class Main2Activity extends AppCompatActivity {
+public class ItemActivity extends AppCompatActivity {
 
     List<homeItems> itemsList;
     ListView listView;
