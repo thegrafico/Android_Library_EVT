@@ -2,10 +2,8 @@ package com.thegrafico.raul.evertec_library_02
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.content.Intent
 import android.view.View
 import android.widget.*
-
 
 class PayActivity : AppCompatActivity() {
 
@@ -18,6 +16,7 @@ class PayActivity : AppCompatActivity() {
         val price: String = intent.getStringExtra(homeAdapter.PRICE)
         val desc: String = intent.getStringExtra(homeAdapter.DESCP)
         val accN: String = intent.getStringExtra(homeAdapter.ACCNUMBER)
+
 
         var bundle: Bundle = getIntent().extras
 

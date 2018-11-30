@@ -10,12 +10,14 @@ import com.thegrafico.raul.evertec_library_02.RegisterNewUser.RegisterUserActivi
 import com.thegrafico.raul.evertectest.ConectorListener.*
 import com.thegrafico.raul.evertectest.Modals.Request.*
 import com.thegrafico.raul.evertectest.Modals.Response.*
+import com.thegrafico.raul.evertectest.Request.MakeRequest
 import com.thegrafico.raul.evertectest.Response.*
 
 
 class MainActivity : AppCompatActivity() {
 
     val PROCESS_TRANSACTION: String = "transaction"
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

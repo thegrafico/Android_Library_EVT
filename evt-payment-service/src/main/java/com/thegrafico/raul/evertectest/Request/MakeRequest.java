@@ -20,6 +20,20 @@ import java.net.URL;
 public class MakeRequest {
 
 
+  /*
+    Below are the variables for the routes of each service, you need to change this for the
+    URL of your preferences. this URL is where the Request is send to.
+
+  */
+    public static String URL_PROCESS_DEBIT      = "http://192.168.43.118:2000/processDebit/";
+    public static String URL_PROCESS_CREDIT     = "http://192.168.43.118:2000/processCredit/";
+    public static String URL_PROCESS_ACH        = "http://192.168.43.118:2000/processACH/";
+    public static String URL_PROCESS_WALLET     = "http://192.168.43.118:2000/processWallet/";
+    public static String URL_PROCESS_CHECKOUT   = "http://192.168.43.118:2000/processCheckout/";
+    public static String URL_PROCESS_ONLINE     = "http://192.168.43.118:2000/processOnline/";
+    public static String URL_PROCESS_SEARCH     = "http://192.168.43.118:2000/processTransactionSearch/";
+
+
     /*
         *static methods to make request: receive 'dataToMakeRequest' and 'choose'
         * dataToMakeRequest is a Json Object that we send here with data to make the request
@@ -91,32 +105,32 @@ public class MakeRequest {
     }
 
 
+
     //private function to choose what URL call
     private static String chooseURL(int choose){
         String URL;
-
         switch (choose){
             case 1: //Process Debit Transaction
-                URL = "http://192.168.43.118:2000/processDebit/";
+                URL = URL_PROCESS_DEBIT;
                 break;
             case 2: //Process Credit Transaction
-                URL = "http://192.168.43.118:2000/processCredit/";
+                URL = URL_PROCESS_CREDIT ;
 
                 break;
             case 3: //Process ACH Transaction
-                URL = "http://192.168.43.118:2000/processACH/";
+                URL = URL_PROCESS_ACH;
                 break;
             case 4: //Process Wallet Transaction Transaction
-                URL = "http://192.168.43.118:2000/processWallet/";
+                URL = URL_PROCESS_WALLET;
                 break;
             case 5: //Process Checkout Payment Transaction
-                URL = "http://192.168.43.118:2000/processCheckout/";
+                URL = URL_PROCESS_CHECKOUT;
                 break;
             case 6: //Process Online Transaction
-                URL = "http://192.168.43.118:2000/processOnline/";
+                URL = URL_PROCESS_ONLINE;
                 break;
             case 7: //Process Transaction Search Transaction
-                URL = "http://192.168.43.118:2000/processTransactionSearch/";
+                URL = URL_PROCESS_SEARCH;
                 break;
             default:
                 URL = null;
@@ -124,5 +138,6 @@ public class MakeRequest {
 
         return URL;
     }
+
 
 }

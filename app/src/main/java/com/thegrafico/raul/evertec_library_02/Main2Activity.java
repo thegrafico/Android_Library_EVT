@@ -21,13 +21,13 @@ public class Main2Activity extends AppCompatActivity {
     ListView listView;
     ResponseTransactionSearch resp;
 
-    String price1 = "Price: $300.00";
-    String price2 = "Price: $799.99";
-    String price3 = "Price: $250.00";
+    String price1 = "Price: $7.99";
+    String price2 = "Price: $9.99";
+    String price3 = "Price: $10.00";
 
-    String des1 = "luxury watch for any occasion. Gold & black";
-    String des2 = "2019 Newest Flagship HP. 1TB Memory, 16GB Ram";
-    String des3 = "2017 Flagship HP. 500TB Memory, 8GB Ram";
+    String des1 = "Arroz con Gandules y Pernil. Refresco e IVU incluido";
+    String des2 = "Monfogo con Camarones frecos, Salsa roja. Refresco e IVU incluido";
+    String des3 = "Flan de queso.";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,9 +52,9 @@ public class Main2Activity extends AppCompatActivity {
 
         //fill up the intemsList
         itemsList = new ArrayList<>();
-        itemsList.add(new homeItems(R.drawable.reloj, price1, des1, "x" +  accNumber));
-        itemsList.add(new homeItems(R.drawable.laptop, price2, des2, "x" + accNumber));
-        itemsList.add(new homeItems(R.drawable.laptop, price3, des3, "x" + accNumber));
+        itemsList.add(new homeItems(R.drawable.pernil, price1, des1, "x" +  accNumber));
+        itemsList.add(new homeItems(R.drawable.mofongo_camarones, price2, des2, "x" + accNumber));
+        itemsList.add(new homeItems(R.drawable.flan, price3, des3, "x" + accNumber));
 
         //init the list view
         listView = findViewById(R.id.listview);
