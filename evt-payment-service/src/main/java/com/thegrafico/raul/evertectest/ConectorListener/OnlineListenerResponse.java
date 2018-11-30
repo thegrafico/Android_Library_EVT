@@ -4,7 +4,7 @@ package com.thegrafico.raul.evertectest.ConectorListener;
 import com.thegrafico.raul.evertectest.Modals.Response.ResponseOnlineResponse;
 
 public interface OnlineListenerResponse {
-
+    //method response
     void downloadCompleted(String result, ResponseOnlineResponse response);
 
 }

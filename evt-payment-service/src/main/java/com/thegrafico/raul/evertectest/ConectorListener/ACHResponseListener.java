@@ -4,7 +4,6 @@ package com.thegrafico.raul.evertectest.ConectorListener;
 import com.thegrafico.raul.evertectest.Modals.Response.ResponseACH;
 
 public interface ACHResponseListener {
-
+    //method response
     void downloadCompleted(String result, ResponseACH response);
-
 }
