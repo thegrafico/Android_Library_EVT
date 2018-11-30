@@ -14,6 +14,10 @@ buildscript {
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
+
+        classpath "com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.4"
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.0'
+
     }
 }
 
@@ -40,4 +44,9 @@ ext{
     targetSdkVersion = 28
     supportLibVersion = "28.0.0"
     junitVersion = "4.12"
+    libPomUrl = 'https://github.com/thegrafico/AndroidLibrary_Evertec'
+    libGithubRepo = 'thegrafico/AndroidLibrary_Evertec'
+    libModuleName = 'evt-payment-services'
+    libModuleDesc = 'API for Evertec Payment Services'
+    libBintrayName = 'evt-payment-services'
 }
