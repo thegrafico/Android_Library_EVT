@@ -26,12 +26,10 @@ class MainActivity : AppCompatActivity() {
         //intent for activities
         val loginIntent = Intent(this, Main2Activity::class.java)
         val signUpIntent= Intent(this, RegisterUserActivity::class.java)
+
         //Buttons
         val singBTN: Button = findViewById(R.id.signBtn)
         val loginBTN: Button = findViewById(R.id.loginBtn)
-        //to get the data from user
-//        var username_emailET: TextInputEditText = findViewById(R.id.email_username)
-//        var passET: EditText = findViewById(R.id.password)
 
         //==============================LOGIN BTN=====================================
         loginBTN.setOnClickListener {
@@ -54,31 +52,6 @@ class MainActivity : AppCompatActivity() {
             startActivityForResult(signUpIntent,1)
         }
 
-    }
-    //-------------------ALL PROCESS FUNCTION-----------------
-    //GENERAL CLASS
-    fun generalClass(){
-
-        //Debit
-        processDebit()
-
-        //Credit
-        processCredit()
-
-        //ACH
-        processACH()
-
-        //OnlineResponse
-        processOnlineResponse()
-
-        //Wallet Transaction
-        processWalletTrans()
-
-        //checkoutPayment
-        processCheckoutPay()
-
-        //TransactionSearch
-        processTransSearch()
     }
 
     //ProcessDebit
