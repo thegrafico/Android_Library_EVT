@@ -154,7 +154,6 @@ public class ProcessResponse extends AsyncTask<String, Void, String> {
             Log.d("Error", e.getMessage());
         }
     }
-
     //------------------END Thread Process-----------------------
 
     //-------------------CHOSE ELEMENT For the Response------------------------------
