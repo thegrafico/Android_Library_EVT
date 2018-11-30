@@ -99,7 +99,6 @@ public class MakeRequest {
                 urlConnection.disconnect();
             }
         }
-
         //if everything go well, never end in this point
         return null;
     }
