@@ -14,6 +14,8 @@ import com.thegrafico.raul.evertectest.Modals.Response.ResponseTransactionSearch
 import java.util.ArrayList;
 import java.util.List;
 
+/*Secondary Activity*/
+
 //Main activity Similar to MainActivity.kt but this one is for kt
 public class ItemActivity extends AppCompatActivity {
 
