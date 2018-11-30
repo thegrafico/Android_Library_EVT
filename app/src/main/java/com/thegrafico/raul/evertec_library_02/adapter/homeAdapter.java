@@ -21,10 +21,10 @@ public class homeAdapter extends ArrayAdapter<homeItems> {
     int resourse;
     List<homeItems> itemsHome;
 
-    static String PRICE = "price";
-    static String DESCP = "descri";
-    static String RESOURSER = "resourse";
-    static  String ACCNUMBER = "accNumber";
+    public static String PRICE = "price";
+    public static String DESCP = "descri";
+    public static String RESOURSER = "resourse";
+    public static  String ACCNUMBER = "accNumber";
 
     Intent intent;
     public homeAdapter(Context context, int resource, List<homeItems> itemsHome){

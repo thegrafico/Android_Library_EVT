@@ -12,6 +12,7 @@ import com.thegrafico.raul.evertectest.Modals.Request.*
 import com.thegrafico.raul.evertectest.Modals.Response.*
 import com.thegrafico.raul.evertectest.Response.*
 
+/*Principal Activity*/
 
 class MainActivity : AppCompatActivity() {
 
